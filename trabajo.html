@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lo que he hecho — AH</title>
+  <meta name="description" content="Proyectos y prácticas de AH: web corporativa, aplicaciones CLI en Python, laboratorio de bajo nivel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ================= CABECERA DE PÁGINA ================= -->
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Lo que he hecho</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_02 / PORTAFOLIO</p>
+        <h1 class="page-title" data-lines>Proyectos sencillos, aprendizaje serio.</h1>
+        <p class="page-intro">Una selección de lo que he construido en estos tres años: de la web corporativa a las utilidades de consola y el laboratorio de bajo nivel.</p>
+        <div class="page-cta">
+          <a class="btn btn--solid" href="contacto.html">¿Hablamos?</a>
+          <a class="btn btn--ghost" href="index.html">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LO QUE HE HECHO (tarjetas apiladas) ================= -->
+    <section class="section section--ink work" id="hecho">
+      <div class="wrap">
+
+        <div class="stack">
+
+          <!-- Proyecto 1 -->
+          <article class="stack-card" style="--i:0">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/corporate-website-mockup-screens/1200/900" alt="Maqueta de una web corporativa en pantalla"></div>
+            <div class="card-text">
+              <span class="card-index">01</span>
+              <h3>Web corporativa</h3>
+              <p class="card-role">Diseño y maquetación · HTML + CSS</p>
+              <p>Estructura semántica, navegación clara y una hoja de estilos mantenible. La primera vez que
+                 entendí que una web es un documento antes que un dibujo.</p>
+              <ul class="tags"><li>HTML5</li><li>CSS</li><li>Semántica</li><li>Responsive</li></ul>
+            </div>
+          </article>
+
+          <!-- Proyecto 2 -->
+          <article class="stack-card" style="--i:1">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/python-cli-terminal-scripts/1200/900" alt="Terminal con un script de línea de comandos"></div>
+            <div class="card-text">
+              <span class="card-index">02</span>
+              <h3>Aplicaciones de consola (CLI)</h3>
+              <p class="card-role">Desarrollo · Python</p>
+              <p>Menús, validación de datos, ficheros y menú persistente. Sin interfaz gráfica donde esconderse:
+                 lógica pura y mensajes de error que el usuario entiende.</p>
+              <ul class="tags"><li>Python</li><li>Funciones</li><li>Ficheros</li><li>Excepciones</li></ul>
+            </div>
+          </article>
+
+          <!-- Proyecto 3 -->
+          <article class="stack-card" style="--i:2">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/microchip-circuit-low-level-memory/1200/900" alt="Placa electrónica vista de cerca"></div>
+            <div class="card-text">
+              <span class="card-index">03</span>
+              <h3>Laboratorio de bajo nivel</h3>
+              <p class="card-role">Autoaprendizaje · Sistemas</p>
+              <p>Prácticas de memoria, procesos y redes: ver el mapa de un programa, abrir un binario, mirar
+                 cabeceras y medir lo que cuesta cada operación.</p>
+              <ul class="tags"><li>Sistemas</li><li>Redes</li><li>Linux</li><li>Depuración</li></ul>
+            </div>
+          </article>
+
+          <!-- Proyecto 4 -->
+          <article class="stack-card" style="--i:3">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/code-notebook-study-library/1200/900" alt="Cuaderno de apuntes de programación"></div>
+            <div class="card-text">
+              <span class="card-index">04</span>
+              <h3>Clases, retos y apuntes abiertos</h3>
+              <p class="card-role">Continuo · Ciclo DAM</p>
+              <p>Todo lo que estudio lo resumo en ficheros propios. Si no lo sé explicar en una hoja,
+                 todavía no lo he entendido.</p>
+              <ul class="tags"><li>Markdown</li><li>Git</li><li>Estudio</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Lista compacta de otros trabajos -->
+        <div class="other-list">
+          <h3 class="list-title">Otras cosas que he hecho</h3>
+          <ul>
+            <li data-reveal><span class="ol-year">2024</span><span class="ol-name">Página de asignatura con maquetación en CSS Grid</span><span class="ol-tag">HTML/CSS</span></li>
+            <li data-reveal><span class="ol-year">2024</span><span class="ol-name">Utilidades de consola: agenda, control de stock y conversores</span><span class="ol-tag">Python</span></li>
+            <li data-reveal><span class="ol-year">2023</span><span class="ol-name">Prácticas de montaje y configuración de sistemas</span><span class="ol-tag">Sistemas</span></li>
+            <li data-reveal><span class="ol-year">2023</span><span class="ol-name">Primeros algoritmos y diagramas de flujo</span><span class="ol-tag">Lógica</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">Contacto</p>
+        <h2 class="footer-title" data-lines>Hablemos de código, o de lo que hay debajo.</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <div class="mail-row">
+          <a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>
+          <button class="btn btn--copy" id="copyMail" type="button" data-mail="ah.correo@ejemplo.com">Copiar</button>
+        </div>
+        <p class="copy-feedback" id="copyFeedback" role="status"></p>
+        <ul class="social">
+          <li><a href="contacto.html">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con HTML, CSS y JavaScript.</p>
+      <p class="footer-tiny">Copiando plantillas. Copiando frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
