@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos de la página -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AH — Entender la máquina</title>
+  <meta name="description" content="Marca personal de AH, alumno de 1º DAM en el IES Simarro. Programación, proyectos, Python e informática a bajo nivel.">
+  <meta property="og:title" content="AH — Entender la máquina, no solo usarla">
+  <meta property="og:description" content="1º DAM · IES Simarro. Proyectos, Python y bajo nivel.">
+  <meta property="og:type" content="website">
+
+  <!-- Tipografías: display (Archivo) + texto (IBM Plex Sans) + monoespaciada (IBM Plex Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Capa de grano/ruído sobre toda la web -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Indicador de progreso de lectura (barra superior) -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA FIJA: nombre + navegación ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+
+    <!-- Navegación principal -->
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="#hecho" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="#me-gusta" class="nav-link">Me gusta</a></li>
+        <li><a href="#capo" class="nav-link">Bajo el capó</a></li>
+        <li><a href="#contacto" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón de menú en móvil -->
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO: nombre + frase + terminal de arranque ================= -->
+    <section class="hero" id="inicio">
+
+      <!-- Rejilla decorativa de fondo -->
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <!-- Columna izquierda: identidad -->
+        <div class="hero-id">
+          <p class="eyebrow" data-scramble>SISTEMA / USUARIO / SESIÓN_01</p>
+
+          <!-- Nombre principal -->
+          <h1 class="hero-name" data-lines>AH</h1>
+
+          <!-- Frase de marca -->
+          <p class="hero-phrase" data-lines>Entender la máquina, no solo usarla.</p>
+
+          <p class="hero-desc">
+            Alumno de <strong>1º DAM</strong> en el <strong>IES Simarro</strong>. Tres años de informática:
+            programación, proyectos reales y una obsesión sana por lo que pasa por debajo de la interfaz.
+          </p>
+
+          <!-- Fila de especificaciones (tipo ficha técnica) -->
+          <dl class="specs">
+            <div><dt>Ciclo</dt><dd>Desarrollo de Aplicaciones Multiplataforma</dd></div>
+            <div><dt>Curso</dt><dd>1º · IES Simarro</dd></div>
+            <div><dt>Lenguaje base</dt><dd>Python</dd></div>
+            <div><dt>Estado</dt><dd class="ok">Disponible para hablar de código</dd></div>
+          </dl>
+
+          <div class="hero-actions">
+            <a class="btn btn--solid" href="#hecho">Ver proyectos</a>
+            <a class="btn btn--ghost" href="#contacto">Contactar</a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: consola de arranque -->
+        <aside class="console" aria-label="Consola de arranque">
+          <div class="console-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="console-title">ah@simarro: ~/sesión</span>
+          </div>
+          <div class="console-body" id="console" role="log" aria-live="polite"></div>
+        </aside>
+      </div>
+
+      <!-- Aviso de scroll -->
+      <div class="scroll-hint" aria-hidden="true"><span></span> scroll</div>
+    </section>
+
+    <!-- ================= CINTA DESLIZANTE DE CONCEPTOS ================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Python</span><i>◆</i><span>Miau</span><i>◆</i>><span>HTML</span><i>◆</i><span>CSS</span><i>◆</i><span>Línea de comandos</span><i>◆</i><span>Memoria</span><i>◆</i><span>Ensamblador</span><i>◆</i><span>Redes</span><i>◆</i><span>Sistemas</span><i>◆</i><span>Cine</span><i>◆</i>
+        <span>Python</span><i>◆</i><span>Miau</span><i>◆</i><span>HTML</span><i>◆</i><span>CSS</span><i>◆</i><span>Línea de comandos</span><i>◆</i><span>Memoria</span><i>◆</i><span>Ensamblador</span><i>◆</i><span>Redes</span><i>◆</i><span>Sistemas</span><i>◆</i><span>Cine</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ================= SECCIÓN: SOBRE MÍ ================= -->
+    <section class="section section--paper about" id="sobre-mi">
+      <div class="wrap about-grid">
+
+        <!-- Columna pegajosa (sticky): título + ficha + retrato -->
+        <div class="about-sticky">
+          <p class="section-num">01 / Sobre mí</p>
+          <h2 class="section-title" data-lines>Tres años mirando la pantalla… y lo que había detrás.</h2>
+
+          <figure class="portrait kb">
+            <img src="https://picsum.photos/seed/developer-desk-terminal-portrait/900/1100" alt="Escritorio de trabajo con editor de código y terminal">
+            <figcaption>Estación de trabajo · IES Simarro</figcaption>
+          </figure>
+        </div>
+
+        <!-- Columna de contenido -->
+        <div class="about-body">
+          <p class="lead" data-reveal>
+            He estudiado informática durante 3 años. En ese tiempo he construido cosas pequeñas y cosas
+            que se usan de verdad: una <strong>web corporativa</strong>, <strong>aplicaciones de consola</strong>
+            y un montón de prácticas que me enseñaron más que cualquier diapositiva.
+          </p>
+
+          <p data-reveal>
+            Lo que no aparece en el currículum es el motivo de todo eso: <em>no me basta con que funcione</em>.
+            Quiero saber qué hace el sistema operativo cuando pido memoria, qué viaja por la red cuando pulso
+            Enter y por qué un programa se cae por un byte mal colocado.
+          </p>
+
+          <!-- Cita destacada -->
+          <blockquote class="pull" data-reveal>
+            «Cualquiera aprende a usar una herramienta. Yo quiero saber de qué está hecha.»
+          </blockquote>
+
+          <!-- Contadores animados -->
+          <div class="stats">
+            <div class="stat" data-reveal><span class="stat-num" data-count="3">0</span><span class="stat-lbl">Años estudiando informática</span></div>
+            <div class="stat" data-reveal><span class="stat-num" data-count="1">0</span><span class="stat-lbl">Curso del ciclo DAM</span></div>
+            <div class="stat" data-reveal><span class="stat-num" data-count="10" data-suffix="+">0</span><span class="stat-lbl">Proyectos y prácticas</span></div>
+            <div class="stat" data-reveal><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-lbl">Ganas de desmontarlo todo</span></div>
+          </div>
+
+          <!-- Ficha del centro -->
+          <table class="facts">
+            <caption class="sr-only">Ficha académica</caption>
+            <tr><th scope="row">Centro</th><td>IES Simarro</td></tr>
+            <tr><th scope="row">Ciclo</th><td>1º — Desarrollo de Aplicaciones Multiplataforma</td></tr>
+            <tr><th scope="row">Base</th><td>Programación, sistemas, marcas, lenguajes de marcado</td></tr>
+            <tr><th scope="row">En marcha</th><td>Fundamentos de bajo nivel, C y ensamblador</td></tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECCIÓN: LO QUE HE HECHO (tarjetas apiladas) ================= -->
+    <section class="section section--ink work" id="hecho">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-num">02 / Lo que he hecho</p>
+          <h2 class="section-title" data-lines>Proyectos sencillos, aprendizaje serio.</h2>
+          <p class="section-lead" data-reveal>Una selección de lo que he construido. Cada tarjeta se apila al hacer scroll.</p>
+        </header>
+
+        <div class="stack">
+
+          <!-- Proyecto 1 -->
+          <article class="stack-card" style="--i:0">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/corporate-website-mockup-screens/1200/900" alt="Maqueta de una web corporativa en pantalla"></div>
+            <div class="card-text">
+              <span class="card-index">01</span>
+              <h3>Web corporativa</h3>
+              <p class="card-role">Diseño y maquetación · HTML + CSS</p>
+              <p>Estructura semántica, navegación clara y una hoja de estilos mantenible. La primera vez que
+                 entendí que una web es un documento antes que un dibujo.</p>
+              <ul class="tags"><li>HTML5</li><li>CSS</li><li>Semántica</li><li>Responsive</li></ul>
+            </div>
+          </article>
+
+          <!-- Proyecto 2 -->
+          <article class="stack-card" style="--i:1">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/python-cli-terminal-scripts/1200/900" alt="Terminal con un script de línea de comandos"></div>
+            <div class="card-text">
+              <span class="card-index">02</span>
+              <h3>Aplicaciones de consola (CLI)</h3>
+              <p class="card-role">Desarrollo · Python</p>
+              <p>Menús, validación de datos, ficheros y menú persistente. Sin interfaz gráfica donde esconderse:
+                 lógica pura y mensajes de error que el usuario entiende.</p>
+              <ul class="tags"><li>Python</li><li>Funciones</li><li>Ficheros</li><li>Excepciones</li></ul>
+            </div>
+          </article>
+
+          <!-- Proyecto 3 -->
+          <article class="stack-card" style="--i:2">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/microchip-circuit-low-level-memory/1200/900" alt="Placa electrónica vista de cerca"></div>
+            <div class="card-text">
+              <span class="card-index">03</span>
+              <h3>Laboratorio de bajo nivel</h3>
+              <p class="card-role">Autoaprendizaje · Sistemas</p>
+              <p>Prácticas de memoria, procesos y redes: ver el mapa de un programa, abrir un binario, mirar
+                 cabeceras y medir lo que cuesta cada operación.</p>
+              <ul class="tags"><li>Sistemas</li><li>Redes</li><li>Linux</li><li>Depuración</li></ul>
+            </div>
+          </article>
+
+          <!-- Proyecto 4 -->
+          <article class="stack-card" style="--i:3">
+            <div class="card-media kb"><img src="https://picsum.photos/seed/code-notebook-study-library/1200/900" alt="Cuaderno de apuntes de programación"></div>
+            <div class="card-text">
+              <span class="card-index">04</span>
+              <h3>Clases, retos y apuntes abiertos</h3>
+              <p class="card-role">Continuo · Ciclo DAM</p>
+              <p>Todo lo que estudio lo resumo en ficheros propios. Si no lo sé explicar en una hoja,
+                 todavía no lo he entendido.</p>
+              <ul class="tags"><li>Markdown</li><li>Git</li><li>Estudio</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- Lista compacta de otros trabajos -->
+        <div class="other-list">
+          <h3 class="list-title">Otras cosas que he hecho</h3>
+          <ul>
+            <li data-reveal><span class="ol-year">2024</span><span class="ol-name">Página de asignatura con maquetación en CSS Grid</span><span class="ol-tag">HTML/CSS</span></li>
+            <li data-reveal><span class="ol-year">2024</span><span class="ol-name">Utilidades de consola: agenda, control de stock y conversores</span><span class="ol-tag">Python</span></li>
+            <li data-reveal><span class="ol-year">2023</span><span class="ol-name">Prácticas de montaje y configuración de sistemas</span><span class="ol-tag">Sistemas</span></li>
+            <li data-reveal><span class="ol-year">2023</span><span class="ol-name">Primeros algoritmos y diagramas de flujo</span><span class="ol-tag">Lógica</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECCIÓN: ME GUSTA ================= -->
+    <section class="section section--paper likes" id="me-gusta">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-num">03 / Me gusta</p>
+          <h2 class="section-title" data-lines>Programar, ver películas y abrir la caja.</h2>
+        </header>
+
+        <div class="bento">
+
+          <!-- Bloque: Python -->
+          <article class="tile tile--code" data-reveal>
+            <p class="tile-kicker">Lenguaje</p>
+            <h3>Python</h3>
+            <p>Legible de verdad: se lee casi como está escrito en la cabeza. Ahí hago casi todo lo que practico.</p>
+            <pre class="snippet" aria-label="Fragmento de código Python"><code><span class="c-key">def</span> <span class="c-fn">aprender</span>(tema):
+    niveles = [<span class="c-str">"usarlo"</span>, <span class="c-str">"entenderlo"</span>, <span class="c-str">"romperlo"</span>]
+    <span class="c-key">for</span> n <span class="c-key">in</span> niveles:
+        estudio(tema, n)      <span class="c-com"># sin saltarse ninguno</span>
+    <span class="c-key">return</span> comprensión_total</code></pre>
+          </article>
+
+          <!-- Bloque: Cine -->
+          <article class="tile tile--film" data-reveal>
+            <p class="tile-kicker">Fuera de la pantalla</p>
+            <h3>Ver películas</h3>
+            <p>Cine como forma de descanso y de analizar relato: plano, ritmo, estructura.</p>
+            <div class="film-strip kb">
+              <img src="https://picsum.photos/seed/cinema-noir-frame-projector/600/420" alt="Fotograma de cine">
+              <img src="https://picsum.photos/seed/film-reel-dark-theatre/600/420" alt="Bobina de película">
+              <img src="https://picsum.photos/seed/movies-marquee-night-lights/600/420" alt="Rótulo de cine de noche">
+            </div>
+          </article>
+
+          <!-- Bloque: bajo nivel -->
+          <article class="tile tile--low" data-reveal>
+            <p class="tile-kicker">Lo que más me tira</p>
+            <h3>Investigar el bajo nivel</h3>
+            <p>Cómo se organiza la memoria de un proceso, qué ocurre en cada llamada al sistema.</p>
+            <ul class="mem">
+              <li><span class="mem-name">código / texto</span><span class="mem-bar" style="--w:62%"></span></li>
+              <li><span class="mem-name">datos</span><span class="mem-bar" style="--w:34%"></span></li>
+              <li><span class="mem-name">montón (heap)</span><span class="mem-bar" style="--w:78%"></span></li>
+              <li><span class="mem-name">pila (stack)</span><span class="mem-bar" style="--w:46%"></span></li>
+            </ul>
+          </article>
+
+          <!-- Bloque: temas de estudio -->
+          <article class="tile tile--topics" data-reveal>
+            <p class="tile-kicker">En investigación</p>
+            <ul class="chips">
+              <li>Arquitectura de computadores</li><li>Sistemas operativos</li><li>Protocolos de red</li>
+              <li>Lenguaje C</li><li>Ensamblador</li><li>Algoritmos y estructuras de datos</li>
+              <li>Seguridad</li><li>Bases de datos</li><li>Línea de comandos</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECCIÓN: BAJO EL CAPÓ (demo interactiva) ================= -->
+    <section class="section section--ink deep" id="capo">
+      <div class="wrap deep-grid">
+        <header class="section-head">
+          <p class="section-num">04 / Bajo el capó</p>
+          <h2 class="section-title" data-lines>Un número, cuatro formas de verlo.</h2>
+          <p class="section-lead" data-reveal>
+            Me interesa dominar los detalles: el mismo dato visto desde el humano y desde la máquina.
+            Escribe un número o prueba uno de los valores rápidos.
+          </p>
+        </header>
+
+        <!-- Panel de control -->
+        <div class="lab">
+          <label class="lab-label" for="numInput">Valor de entrada (0 – 4294967295)</label>
+          <input class="lab-input" type="text" id="numInput" inputmode="numeric" value="2048" autocomplete="off" spellcheck="false">
+          <div class="presets" role="group" aria-label="Valores rápidos">
+            <button type="button" class="preset" data-val="42">42</button>
+            <button type="button" class="preset" data-val="255">255</button>
+            <button type="button" class="preset" data-val="1024">1024</button>
+            <button type="button" class="preset" data-val="65535">65535</button>
+            <button type="button" class="preset" data-val="16777216">16M</button>
+          </div>
+
+          <!-- Salidas -->
+          <dl class="out">
+            <div class="out-row"><dt>Decimal</dt><dd id="oDec">—</dd></div>
+            <div class="out-row"><dt>Hexadecimal</dt><dd id="oHex">—</dd></div>
+            <div class="out-row"><dt>Binario</dt><dd id="oBin">—</dd></div>
+            <div class="out-row"><dt>Octal</dt><dd id="oOct">—</dd></div>
+            <div class="out-row"><dt>Bytes</dt><dd id="oBytes">—</dd></div>
+            <div class="out-row"><dt>Carácter ASCII</dt><dd id="oChar">—</dd></div>
+          </dl>
+          <p class="lab-note" id="labNote">Base 10 · 32 bits sin signo</p>
+        </div>
+      </div>
+
+      <!-- Línea de tiempo académica -->
+      <div class="wrap timeline">
+        <h3 class="list-title list-title--light">Ruta</h3>
+        <ol>
+          <li data-reveal><span class="tl-dot"></span><b>Inicio</b><p>Tres años de informática: lógica, algoritmos y primeras líneas de código.</p></li>
+          <li data-reveal><span class="tl-dot"></span><b>Proyectos</b><p>Web corporativa y aplicaciones CLI en Python, con práctica real de ciclo.</p></li>
+          <li data-reveal><span class="tl-dot tl-dot--live"></span><b>Hoy</b><p>1º DAM en el IES Simarro, ampliando sistemas, redes y bajo nivel por mi cuenta.</p></li>
+          <li data-reveal><span class="tl-dot"></span><b>Siguiente parada</b><p>Dominar la base: C, ensamblador, compiladores y cómo respira un sistema.</p></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE DE PÁGINA: contacto ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+
+      <!-- Llamada principal -->
+      <div class="footer-cta">
+        <p class="section-num">05 / Contacto</p>
+        <h2 class="footer-title" data-lines>Hablemos de código, o de lo que hay debajo.</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+
+        <!-- Correo con botón de copiar -->
+        <div class="mail-row">
+          <a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>
+          <button class="btn btn--copy" id="copyMail" type="button" data-mail="ah.correo@ejemplo.com">Copiar</button>
+        </div>
+        <p class="copy-feedback" id="copyFeedback" role="status"></p>
+
+        <!-- Enlaces de contacto -->
+        <ul class="social">
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" rel="noopener">Calendario</a></li>
+        </ul>
+      </div>
+
+      <!-- Ficha lateral -->
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="#inicio">Volver arriba</a>
+      </aside>
+    </div>
+
+    <!-- Barra legal -->
+    <div class="wrap footer-bar">
+     <!-- <p>© <span id="year">2025</span> AH · Marca personal hecha a mano con HTML, CSS y JavaScript.</p>
+      <p class="footer-tiny">Sin plantillas. Sin frameworks.</p>-->
+	 <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con HTML, CSS y JavaScript.</p>
+      <p class="footer-tiny">Copiando plantillas. Con frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
