@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — AH</title>
+  <meta name="description" content="Escríbeme: prácticas de empresa, proyectos de ciclo o conversación técnica. Formulario y correo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ================= CABECERA DE PÁGINA ================= -->
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Contacto</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_05 / CANAL</p>
+        <h1 class="page-title" data-lines>Hablemos de código, o de lo que hay debajo.</h1>
+        <p class="page-intro">Prácticas de empresa, proyectos de ciclo o una charla técnica. Rellena el formulario y te respondo.</p>
+      </div>
+    </section>
+
+    <!-- ================= FORMULARIO ================= -->
+    <section class="section section--paper contact" id="form">
+      <div class="wrap contact-grid">
+
+        <!-- Columna izquierda: formulario -->
+        <div class="contact-form-wrap">
+
+          <!-- Panel de éxito (oculto hasta enviar) -->
+          <div class="form-success" id="formSuccess" hidden>
+            <p class="success-ico" aria-hidden="true">✓</p>
+            <h2>Mensaje preparado.</h2>
+            <p id="successMsg">Se ha abierto tu cliente de correo con el mensaje redactado. Si no se abrió, usa el botón de abajo para copiarlo.</p>
+            <div class="success-actions">
+              <button type="button" class="btn btn--ghost" id="copyMessage">Copiar mensaje</button>
+              <button type="button" class="btn btn--solid" id="resetForm">Enviar otro</button>
+            </div>
+          </div>
+
+          <!-- Formulario. data-mail = destinatario para el envío por correo. -->
+          <form class="form" id="contactForm" novalidate data-mail="ah.correo@ejemplo.com">
+
+            <div class="field">
+              <label for="fName">Nombre <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="fName" name="nombre" autocomplete="name" required minlength="2"
+                     placeholder="Tu nombre" aria-describedby="errName">
+              <p class="err" id="errName" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="fEmail">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="fEmail" name="email" autocomplete="email" required
+                     placeholder="tucorreo@dominio.com" aria-describedby="errEmail">
+              <p class="err" id="errEmail" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="fSubject">Motivo <span class="req" aria-hidden="true">*</span></label>
+              <select id="fSubject" name="motivo" required aria-describedby="errSubject">
+                <option value="" disabled selected>Elige una opción…</option>
+                <option value="FCT / Prácticas">FCT / Prácticas de empresa</option>
+                <option value="Proyecto de ciclo">Proyecto de ciclo</option>
+                <option value="Colaboración">Colaboración técnica</option>
+                <option value="Charla de código">Charla de código</option>
+                <option value="Otro">Otro</option>
+              </select>
+              <p class="err" id="errSubject" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="fMessage">Mensaje <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="fMessage" name="mensaje" rows="6" required minlength="15" maxlength="1000"
+                        placeholder="Cuéntame qué necesitas…" aria-describedby="errMessage charCount"></textarea>
+              <p class="counter"><span id="charCount">0</span> / 1000</p>
+              <p class="err" id="errMessage" role="alert"></p>
+            </div>
+
+            <!-- Campo trampa anti-spam (los bots lo rellenan; los humanos no lo ven) -->
+            <div class="hp" aria-hidden="true">
+              <label for="fSite">No rellenar</label>
+              <input type="text" id="fSite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field field--check">
+              <input type="checkbox" id="fConsent" name="consent" required aria-describedby="errConsent">
+              <label for="fConsent">Acepto que mis datos se usen solo para responder a este mensaje.</label>
+              <p class="err" id="errConsent" role="alert"></p>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn--solid" id="submitBtn">Enviar mensaje</button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Columna derecha: datos -->
+        <aside class="contact-info">
+          <h3>Otras vías</h3>
+          <div class="mail-row">
+            <a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>
+            <button class="btn btn--copy" id="copyMail" type="button" data-mail="ah.correo@ejemplo.com">Copiar</button>
+          </div>
+          <p class="copy-feedback" id="copyFeedback" role="status"></p>
+
+          <dl class="info-list">
+            <div><dt>Nombre</dt><dd>AH</dd></div>
+            <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+            <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+            <div><dt>Respuesta</dt><dd>En 1–2 días laborables</dd></div>
+            <div><dt>Zona</dt><dd>España</dd></div>
+          </dl>
+
+          <ul class="social">
+            <li><a href="#" rel="noopener">GitHub</a></li>
+            <li><a href="#" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">05 / Contacto</p>
+        <h2 class="footer-title" data-lines>Hablemos de código, o de lo que hay debajo.</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <ul class="social">
+          <li><a href="#form">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con HTML, CSS y JavaScript.</p>
+      <p class="footer-tiny">Copiando plantillas. Copiando frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
