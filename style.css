@@ -1,4 +1,4 @@
-/* =========================================================MAIU
+/* =========================================================
    AH — marca personal · estilo sobrio tipo Sony (multi-página)
    ========================================================= */
 
@@ -394,6 +394,33 @@ ul,ol,dl{margin:0;padding:0;list-style:none}
   .out-row{grid-template-columns:1fr}
   .timeline ol{grid-template-columns:1fr}
   .brand-sub{display:none}
+}
+
+/* ---------- Globo 3D · red global ---------- */
+.globe-shell{display:grid;grid-template-columns:1fr 300px;gap:24px;border:1px solid var(--line-d);
+  background:radial-gradient(120% 120% at 50% 0%,#101018 0%,#08080c 65%);padding:clamp(16px,2.6vw,30px)}
+.globe-canvas{position:relative;aspect-ratio:1/1;min-height:420px;cursor:grab;touch-action:pan-y;overflow:hidden}
+.globe-canvas:active{cursor:grabbing}
+.globe-canvas canvas{display:block;width:100%;height:100%}
+.globe-canvas .globe-fallback{display:grid;place-items:center;min-height:100%;font-family:var(--mono);
+  font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey)}
+.globe-hud{border:1px solid var(--line-d);background:#0b0b0f;padding:20px;display:flex;flex-direction:column;gap:14px}
+.hud-block{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  border-bottom:1px solid var(--line-d);padding-bottom:10px}
+.hud-k{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.hud-v{font-family:var(--display);font-weight:800;font-stretch:116%;font-size:1.5rem;color:#fff}
+.hud-v.hot{color:var(--red-2)}
+.hud-log{flex:1;min-height:120px;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.hud-log li{font-family:var(--mono);font-size:11px;color:var(--grey-d);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;animation:hudIn .4s var(--ease)}
+.hud-log li b{color:var(--red-2);font-weight:500}
+.hud-log li i{font-style:normal;color:#7ee0a4}
+@keyframes hudIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.hud-note{margin:0;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:#45454e}
+@media (max-width:1080px){
+  .globe-shell{grid-template-columns:1fr}
+  .globe-hud{order:-1}
+  .hud-log{min-height:90px}
 }
 
 /* ---------- Accesibilidad: movimiento reducido ---------- */
