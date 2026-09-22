@@ -35,6 +35,36 @@
     </button>
   </header>
 
+  <!--Globex-->
+  <!-- ================= SECCIÓN: RED GLOBAL (globo 3D) ================= -->
+<section class="section section--ink globe-section" id="red">
+  <div class="wrap">
+    <header class="section-head">
+      <p class="section-num">/ Red global</p>
+      <h2 class="section-title" data-lines>La red, en tiempo real.</h2>
+      <p class="section-lead">Simulación visual de conexiones entre nodos de todo el mundo, con la Luna en órbita. Arrastra el planeta para girarlo.</p>
+    </header>
+
+    <div class="globe-shell">
+      <!-- Lienzo del globo (aquí Three.js inserta el <canvas>) -->
+      <div class="globe-canvas" id="globe" role="img"
+           aria-label="Globo terráqueo 3D con conexiones de red simuladas y la Luna orbitando"></div>
+
+      <!-- Panel de telemetría simulada -->
+      <aside class="globe-hud" aria-label="Telemetría de la simulación">
+        <div class="hud-block"><span class="hud-k">Nodos activos</span><span class="hud-v" id="hudNodes">0</span></div>
+        <div class="hud-block"><span class="hud-k">Paquetes / s</span><span class="hud-v" id="hudPps">0</span></div>
+        <div class="hud-block"><span class="hud-k">Latencia media</span><span class="hud-v" id="hudLat">—</span></div>
+        <div class="hud-block"><span class="hud-k">Tráfico total</span><span class="hud-v" id="hudTraffic">0 MB</span></div>
+        <ol class="hud-log" id="hudLog"></ol>
+        <p class="hud-note">Simulación local · sin red real</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+  <!--================-->
+
   <main>
 
     <!-- ================= CABECERA DE PÁGINA ================= -->
@@ -137,5 +167,12 @@
   </footer>
 
   <script src="script.js"></script>
+<!--Globex-->
+  <script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
+</script>
+<script type="module" src="globex.js"></script>
+
+
 </body>
 </html>
