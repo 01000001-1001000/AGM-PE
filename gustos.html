@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Me gusta — AH</title>
+  <meta name="description" content="Qué me mueve: Python, cine, y la curiosidad por el bajo nivel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ================= CABECERA DE PÁGINA ================= -->
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Me gusta</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_03 / INTERESES</p>
+        <h1 class="page-title" data-lines>Programar, ver películas y abrir la caja.</h1>
+        <p class="page-intro">Lo que hago con mi tiempo y por qué termino siempre mirando lo que hay por debajo.</p>
+        <div class="page-cta">
+          <a class="btn btn--solid" href="bajo-capo.html">Ver bajo el capó</a>
+          <a class="btn btn--ghost" href="index.html">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ME GUSTA (bento) ================= -->
+    <section class="section section--paper likes" id="me-gusta">
+      <div class="wrap">
+        <div class="bento">
+
+          <!-- Bloque: Python -->
+          <article class="tile tile--code" data-reveal>
+            <p class="tile-kicker">Lenguaje</p>
+            <h3>Python</h3>
+            <p>Legible de verdad: se lee casi como está escrito en la cabeza. Ahí hago casi todo lo que practico.</p>
+            <pre class="snippet" aria-label="Fragmento de código Python"><code><span class="c-key">def</span> <span class="c-fn">aprender</span>(tema):
+    niveles = [<span class="c-str">"usarlo"</span>, <span class="c-str">"entenderlo"</span>, <span class="c-str">"romperlo"</span>]
+    <span class="c-key">for</span> n <span class="c-key">in</span> niveles:
+        estudio(tema, n)      <span class="c-com"># sin saltarse ninguno</span>
+    <span class="c-key">return</span> comprensión_total</code></pre>
+          </article>
+
+          <!-- Bloque: Cine -->
+          <article class="tile tile--film" data-reveal>
+            <p class="tile-kicker">Fuera de la pantalla</p>
+            <h3>Ver películas</h3>
+            <p>Cine como forma de descanso y de analizar relato: plano, ritmo, estructura.</p>
+            <div class="film-strip kb">
+              <img src="https://picsum.photos/seed/cinema-noir-frame-projector/600/420" alt="Fotograma de cine">
+              <img src="https://picsum.photos/seed/film-reel-dark-theatre/600/420" alt="Bobina de película">
+              <img src="https://picsum.photos/seed/movies-marquee-night-lights/600/420" alt="Rótulo de cine de noche">
+            </div>
+          </article>
+
+          <!-- Bloque: bajo nivel -->
+          <article class="tile tile--low" data-reveal>
+            <p class="tile-kicker">Lo que más me tira</p>
+            <h3>Investigar el bajo nivel</h3>
+            <p>Cómo se organiza la memoria de un proceso, qué ocurre en cada llamada al sistema.</p>
+            <ul class="mem">
+              <li><span class="mem-name">código / texto</span><span class="mem-bar" style="--w:62%"></span></li>
+              <li><span class="mem-name">datos</span><span class="mem-bar" style="--w:34%"></span></li>
+              <li><span class="mem-name">montón (heap)</span><span class="mem-bar" style="--w:78%"></span></li>
+              <li><span class="mem-name">pila (stack)</span><span class="mem-bar" style="--w:46%"></span></li>
+            </ul>
+          </article>
+
+          <!-- Bloque: temas de estudio -->
+          <article class="tile tile--topics" data-reveal>
+            <p class="tile-kicker">En investigación</p>
+            <ul class="chips">
+              <li>Arquitectura de computadores</li><li>Sistemas operativos</li><li>Protocolos de red</li>
+              <li>Lenguaje C</li><li>Ensamblador</li><li>Algoritmos y estructuras de datos</li>
+              <li>Seguridad</li><li>Bases de datos</li><li>Línea de comandos</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">Contacto</p>
+        <h2 class="footer-title" data-lines>Hablemos de código, o de lo que hay debajo.</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <div class="mail-row">
+          <a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>
+          <button class="btn btn--copy" id="copyMail" type="button" data-mail="ah.correo@ejemplo.com">Copiar</button>
+        </div>
+        <p class="copy-feedback" id="copyFeedback" role="status"></p>
+        <ul class="social">
+          <li><a href="contacto.html">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con HTML, CSS y JavaScript.</p>
+      <p class="footer-tiny">Copiando plantillas. Copiando frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
