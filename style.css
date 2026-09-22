@@ -423,6 +423,16 @@ ul,ol,dl{margin:0;padding:0;list-style:none}
   .hud-log{min-height:90px}
 }
 
+/* ---------- Parche móvil: mata el scroll horizontal del globo ---------- */
+html{overflow-x:hidden}                 /* refuerzo al body overflow-x:hidden */
+.globe-hud{min-width:0;overflow:hidden} /* permite que el panel encoja */
+.hud-log{min-width:0}                   /* rompe el min-content del nowrap */
+.hud-log li{max-width:100%}             /* recorta con ellipsis en vez de ensanchar */
+@media (max-width:760px){
+  .globe-canvas{min-height:320px}       /* menos alto en móvil, sin hueco raro */
+  .globe-shell{gap:16px;padding:14px}
+}
+
 /* ---------- Accesibilidad: movimiento reducido ---------- */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
