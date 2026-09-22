@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bajo el capó — AH</title>
+  <meta name="description" content="Un número visto desde el humano y desde la máquina: decimal, hex, binario, bytes. Y la ruta académica.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+    <!-- ================= CABECERA DE PÁGINA ================= -->
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Bajo el capó</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_04 / SISTEMA</p>
+        <h1 class="page-title" data-lines>Un número, cuatro formas de verlo.</h1>
+        <p class="page-intro">Me interesa dominar los detalles: el mismo dato visto desde el humano y desde la máquina. Prueba el conversor de abajo.</p>
+        <div class="page-cta">
+          <a class="btn btn--solid" href="contacto.html">Contactar</a>
+          <a class="btn btn--ghost" href="index.html">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONVERSOR ================= -->
+    <section class="section section--ink deep" id="capo">
+      <div class="wrap deep-grid">
+        <div class="deep-intro">
+          <h2 class="section-title" data-lines>Decimal, hex, binario, bytes.</h2>
+          <p class="section-lead" data-reveal>
+            Escribe un número o pulsa un valor rápido. La máquina no ve “2048”: ve bits, bytes y direcciones.
+          </p>
+        </div>
+
+        <!-- Panel de control -->
+        <div class="lab">
+          <label class="lab-label" for="numInput">Valor de entrada (0 – 4294967295)</label>
+          <input class="lab-input" type="text" id="numInput" inputmode="numeric" value="2048" autocomplete="off" spellcheck="false">
+          <div class="presets" role="group" aria-label="Valores rápidos">
+            <button type="button" class="preset" data-val="42">42</button>
+            <button type="button" class="preset" data-val="255">255</button>
+            <button type="button" class="preset" data-val="1024">1024</button>
+            <button type="button" class="preset" data-val="65535">65535</button>
+            <button type="button" class="preset" data-val="16777216">16M</button>
+          </div>
+
+          <!-- Salidas -->
+          <dl class="out">
+            <div class="out-row"><dt>Decimal</dt><dd id="oDec">—</dd></div>
+            <div class="out-row"><dt>Hexadecimal</dt><dd id="oHex">—</dd></div>
+            <div class="out-row"><dt>Binario</dt><dd id="oBin">—</dd></div>
+            <div class="out-row"><dt>Octal</dt><dd id="oOct">—</dd></div>
+            <div class="out-row"><dt>Bytes</dt><dd id="oBytes">—</dd></div>
+            <div class="out-row"><dt>Carácter ASCII</dt><dd id="oChar">—</dd></div>
+          </dl>
+          <p class="lab-note" id="labNote">Base 10 · 32 bits sin signo</p>
+        </div>
+      </div>
+
+      <!-- Línea de tiempo académica -->
+      <div class="wrap timeline">
+        <h3 class="list-title list-title--light">Ruta</h3>
+        <ol>
+          <li data-reveal><span class="tl-dot"></span><b>Inicio</b><p>Tres años de informática: lógica, algoritmos y primeras líneas de código.</p></li>
+          <li data-reveal><span class="tl-dot"></span><b>Proyectos</b><p>Web corporativa y aplicaciones CLI en Python, con práctica real de ciclo.</p></li>
+          <li data-reveal><span class="tl-dot tl-dot--live"></span><b>Hoy</b><p>1º DAM en el IES Simarro, ampliando sistemas, redes y bajo nivel por mi cuenta.</p></li>
+          <li data-reveal><span class="tl-dot"></span><b>Siguiente parada</b><p>Dominar la base: C, ensamblador, compiladores y cómo respira un sistema.</p></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">Contacto</p>
+        <h2 class="footer-title" data-lines>Hablemos de código, o de lo que hay debajo.</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <div class="mail-row">
+          <a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>
+          <button class="btn btn--copy" id="copyMail" type="button" data-mail="ah.correo@ejemplo.com">Copiar</button>
+        </div>
+        <p class="copy-feedback" id="copyFeedback" role="status"></p>
+        <ul class="social">
+          <li><a href="contacto.html">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con HTML, CSS y JavaScript.</p>
+      <p class="footer-tiny">Copiando plantillas. Copiando frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
