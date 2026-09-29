@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proceso — AH</title>
+  <meta name="description" content="Decisiones de diseño y arquitectura, historial de commits en directo y prompts archivados del portfolio de AH.">
+  <meta property="og:title" content="Proceso — AH">
+  <meta property="og:description" content="Decisiones de diseño y arquitectura, historial de commits en directo y prompts archivados del portfolio de AH.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Proceso</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_06 / PROCESO</p>
+        <h1 class="page-title" data-lines>Cómo se hizo, y por qué así.</h1>
+        <p class="page-intro">Decisiones de diseño, decisiones de arquitectura, el historial de commits y las instrucciones que di a la IA. Todo defendible.</p>
+      </div>
+    </section>
+
+    <!-- ================= DECISIONES DE DISEÑO ================= -->
+    <section class="section section--ink" id="diseno">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-num">/ Diseño</p>
+          <h2 class="section-title" data-lines>Cada decisión tiene un porqué.</h2>
+        </header>
+        <div class="dgrid">
+          <article class="dcard" data-reveal><span class="section-num">Paleta</span><h3>Negro, blanco y un solo rojo</h3>
+            <p>Un único color de acento (#E10000) guía la mirada hacia lo accionable: botones, foco y datos clave. Lo demás es escala de grises con contraste alto.</p>
+            <div class="swatches" aria-hidden="true"><i style="background:#0b0b0d"></i><i style="background:#fff"></i><i style="background:#e10000"></i><i style="background:#6f6f78"></i></div></article>
+          <article class="dcard" data-reveal><span class="section-num">Tipografía</span><h3>Tres voces, tres roles</h3>
+            <p>Archivo (titulares, ancho variable) para la personalidad; IBM Plex Sans para leer; IBM Plex Mono para etiquetas y datos, que evocan la terminal y mi perfil de bajo nivel.</p></article>
+          <article class="dcard" data-reveal><span class="section-num">Rejilla</span><h3>Seis columnas visibles</h3>
+            <p>La rejilla de fondo en el hero muestra la estructura, como un plano técnico. Refuerza la idea «entender cómo está construido».</p></article>
+          <article class="dcard" data-reveal><span class="section-num">Movimiento</span><h3>Animar con intención</h3>
+            <p>La máquina de escribir y la consola aluden a la terminal; los contadores y el radar solo se animan al entrar en pantalla. Todo se apaga con «reducir movimiento».</p></article>
+          <article class="dcard" data-reveal><span class="section-num">Tema</span><h3>Oscuro por identidad, claro por elección</h3>
+            <p>El oscuro es la marca; el claro ayuda a leer con mucha luz. La preferencia se guarda y se aplica antes de pintar para evitar parpadeos.</p></article>
+          <article class="dcard" data-reveal><span class="section-num">Accesibilidad</span><h3>Teclado, contraste y semántica</h3>
+            <p>Enlace «saltar al contenido», foco visible, <code>aria-live</code> en formularios y chat, textos alternativos y estructura de encabezados coherente.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ARQUITECTURA (ADR) ================= -->
+    <section class="section section--ink" id="adr" style="padding-top:0">
+      <div class="wrap">
+        <h3 class="list-title">Decisiones de arquitectura (ADR)</h3>
+        <div class="adr"><details><summary>ADR-0001 · Sin framework (HTML + CSS + JS puro)</summary><p>Contexto: es un portfolio de contenido, no una aplicación con estado complejo. Decisión: HTML semántico, CSS con variables y JavaScript vanilla. Consecuencias: cero dependencias que actualizar, carga rápida y todo el código es explicable; a cambio, la cabecera y el pie se repiten en cada página.</p></details><details><summary>ADR-0002 · JavaScript en módulos ES</summary><p>Decisión: separar por responsabilidad (tema, contacto, GitHub, chatbot, zona…) con <code>import/export</code> y un único punto de entrada <code>js/main.js</code>. Consecuencias: cada módulo se entiende y se prueba por separado, y un fallo no tumba el resto (función <code>safe()</code>).</p></details><details><summary>ADR-0003 · Formulario: Formspree + issue de GitHub + mailto</summary><p>Contexto: no hay servidor propio. Decisión: envío por <code>fetch</code> a Formspree como canal principal, issue etiquetado en GitHub como alternativa y mailto como plan B. Consecuencias: el mensaje siempre tiene una vía, pero dependemos de un tercero; el issue es público, por eso no incluye el correo.</p></details><details><summary>ADR-0004 · Chatbot por reglas, sin API de IA</summary><p>Contexto: una clave de API en el navegador queda expuesta. Decisión: motor de reglas con palabras clave y habilidades (conversor, hora). Consecuencias: gratis, rápido y explicable; no entiende preguntas fuera de su base de conocimiento. Camino de mejora: backend intermedio que guarde la clave.</p></details><details><summary>ADR-0005 · Zona privada como demo con hash y sesión caducable</summary><p>Contexto: una web estática no puede proteger nada de verdad. Decisión: demostrar el flujo (login, sesión, zona, logout) con SHA-256 + sal mediante Web Crypto, caducidad y bloqueo por intentos. Consecuencias: valida el diseño del flujo, pero la seguridad real exigiría servidor.</p></details><details><summary>ADR-0006 · Globo 3D con carga perezosa</summary><p>Contexto: Three.js pesa mucho y penaliza el rendimiento. Decisión: importar <code>globex.js</code> dinámicamente solo cuando el globo va a entrar en pantalla. Consecuencias: mejor tiempo de carga inicial en todas las páginas.</p></details></div>
+      </div>
+    </section>
+
+    <!-- ================= HISTORIAL REAL (API de GitHub) ================= -->
+    <section class="section section--ink" id="historial" style="padding-top:0">
+      <div class="wrap">
+        <h3 class="list-title">Historial de commits, en directo</h3>
+        <p class="section-lead" style="margin:0">Leído de la API de GitHub. Los mensajes cuentan decisiones, no solo «cambios».</p>
+        <ol class="commits" id="commits" aria-live="polite" aria-busy="true"></ol>
+        <p style="margin-top:22px"><a class="btn btn--ghost" id="promptsLink" href="#">Órdenes a la IA archivadas</a>
+           <a class="btn btn--ghost" id="issuesLink" href="#">Issues y tablero</a></p>
+
+        <h3 class="list-title" style="margin-top:clamp(50px,7vw,90px)">Iteraciones</h3>
+        <ol class="log">
+          <li><b>v1</b><span>Sitio de una sola página con contenido genérico y un formulario por mailto.</span></li>
+          <li><b>v2</b><span>Multipágina: proyectos, gustos, «bajo el capó» con conversor y globo 3D.</span></li>
+          <li><b>v3</b><span>Formulario con 3 canales, filtro de proyectos, API de GitHub, tema claro/oscuro, chatbot, zona privada y documentación.</span></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">Contacto</p>
+        <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <!--<ul class="social">
+          <li><a href="#form">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>-->
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+        <!--Insert subClaPagIn-->
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
