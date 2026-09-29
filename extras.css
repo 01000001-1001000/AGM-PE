@@ -1,0 +1,242 @@
+/* =========================================================
+   extras.css — se carga DESPUÉS de style.css
+   ---------------------------------------------------------
+   No toca style.css: solo AÑADE y sobrescribe lo necesario.
+   Índice:
+    1. Utilidades y accesibilidad (hidden, skip-link, foco)
+    2. Cabecera: botón de tema y nav compacta
+    3. Tema CLARO (el oscuro es el original)
+    4. Personalización (saludo)
+    5. Buscador/filtro de proyectos
+    6. Casos de estudio y datos por completar
+    7. Repos de GitHub (API) y commits
+    8. Medios: ilustraciones, vídeo, SVG animados
+    9. Habilidades (radar) y servicios
+   10. Contacto: canales y "recorrido del dato"
+   11. Proceso: decisiones de diseño y ADR
+   12. Zona privada (login + bitácora)
+   13. Chatbot
+   ========================================================= */
+
+/* ---------- 1. Utilidades y accesibilidad ---------- */
+[hidden]{display:none !important}   /* que "hidden" gane siempre a display:grid/flex */
+.skip-link{position:fixed;left:12px;top:-60px;z-index:10000;background:var(--red);color:#fff;padding:10px 16px;
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:top .25s var(--ease)}
+.skip-link:focus{top:12px}
+/* Foco visible y consistente para teclado (WCAG 2.4.7) */
+:focus-visible{outline:2px solid var(--red-2);outline-offset:3px}
+main:focus{outline:none}
+.footer-link{display:inline-block;margin:16px 16px 0 0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--grey);border-bottom:1px solid var(--line)}
+.footer-link:hover{color:var(--red);border-color:var(--red)}
+
+/* ---------- 2. Cabecera ---------- */
+.theme-toggle{width:38px;height:34px;display:grid;place-items:center;background:none;border:1px solid var(--line-d);
+  color:#fff;cursor:pointer;transition:border-color .25s,transform .3s var(--ease)}
+.theme-toggle:hover{border-color:var(--red);transform:rotate(20deg)}
+.theme-toggle svg{width:18px;height:18px}
+.site-header .main-nav{margin-left:auto}
+@media (max-width:1180px){
+  .nav-link{padding:10px 9px;letter-spacing:.08em}
+  .brand-sub{display:none}
+}
+@media (max-width:760px){ .site-header .main-nav{margin-left:0} .theme-toggle{margin-left:auto} }
+
+/* ---------- 3. Tema CLARO ----------
+   El sitio nace oscuro. Aquí solo se "invierten" las superficies
+   oscuras; las secciones "paper" (blancas) ya eran claras. */
+:root[data-theme="light"]{color-scheme:light}
+[data-theme="light"] body{background:#f3f3f6;color:#0b0b0d}
+[data-theme="light"] .site-header.is-scrolled{background:#f3f3f6f2}
+[data-theme="light"] .nav-link,[data-theme="light"] .brand-sub{color:#55555f}
+[data-theme="light"] .nav-link:hover,[data-theme="light"] .nav-link.is-active,[data-theme="light"] .nav-link--cta{color:#0b0b0d}
+[data-theme="light"] .nav-toggle span,[data-theme="light"] .theme-toggle{background:none;color:#0b0b0d}
+[data-theme="light"] .nav-toggle span{background:#0b0b0d}
+[data-theme="light"] .theme-toggle{border-color:#d5d5dc}
+[data-theme="light"] .hero-grid::after,[data-theme="light"] .page-hero-grid::after{
+  background:radial-gradient(120% 90% at 70% -10%,transparent 35%,#f3f3f6 80%)}
+[data-theme="light"] .hero-grid,[data-theme="light"] .page-hero-grid{--line-d:#d9d9e0}
+[data-theme="light"] .hero-desc,[data-theme="light"] .page-intro,[data-theme="light"] .section--ink .section-lead{color:#4b4b53}
+[data-theme="light"] .hero-desc strong,[data-theme="light"] .specs dd,[data-theme="light"] .breadcrumb b{color:#0b0b0d}
+[data-theme="light"] .breadcrumb a{color:#55555f}
+[data-theme="light"] .btn{color:#0b0b0d;border-color:#c9c9d2}
+[data-theme="light"] .btn--solid{color:#fff;border-color:var(--red)}
+[data-theme="light"] .btn--solid:hover{background:#0b0b0d;color:#fff;border-color:#0b0b0d}
+[data-theme="light"] .section--ink{background:#f3f3f6}
+[data-theme="light"] .page-hero,[data-theme="light"] .specs,[data-theme="light"] .specs > div{border-color:#d5d5dc}
+[data-theme="light"] .stack-card{background:#fff;border-color:#d5d5dc}
+[data-theme="light"] .card-index{color:#e7e7ec}
+[data-theme="light"] .card-text p:not(.card-role){color:#4b4b53}
+[data-theme="light"] .tags li,[data-theme="light"] .ol-tag{color:#3d3d45;border-color:#d5d5dc}
+[data-theme="light"] .other-list ul,[data-theme="light"] .other-list li{border-color:#d5d5dc}
+[data-theme="light"] .other-list li:hover{background:#fff}
+[data-theme="light"] .lab{background:#fff;border-color:#d5d5dc}
+[data-theme="light"] .lab-input{background:#f3f3f6;color:#0b0b0d;border-color:#d5d5dc}
+[data-theme="light"] .out,[data-theme="light"] .out-row{border-color:#d5d5dc}
+[data-theme="light"] .out dd{color:#0b0b0d}
+[data-theme="light"] .preset{color:#4b4b53;border-color:#d5d5dc}
+[data-theme="light"] .preset:hover{color:#0b0b0d}
+[data-theme="light"] .timeline ol{background:#d5d5dc;border-color:#d5d5dc}
+[data-theme="light"] .timeline li{background:#f3f3f6}
+[data-theme="light"] .timeline li:hover{background:#fff}
+[data-theme="light"] .timeline p{color:#4b4b53}
+[data-theme="light"] .deep-intro .section-title,[data-theme="light"] .list-title--light{color:#0b0b0d}
+[data-theme="light"] .main-nav{background:#f3f3f6f8}
+/* La consola y el globo son "pantallas": se quedan oscuras en ambos temas. */
+
+/* ---------- 4. Personalización ---------- */
+.greeting{display:inline-block;margin:0 0 18px;padding:8px 14px;border-left:3px solid var(--red);
+  background:var(--ink-2);font-family:var(--mono);font-size:12.5px;letter-spacing:.04em}
+[data-theme="light"] .greeting{background:#fff}
+
+/* ---------- 5. Buscador y filtros ---------- */
+.toolbar{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:34px;padding-bottom:22px;border-bottom:1px solid var(--line-d)}
+.toolbar input[type=search]{flex:1 1 240px;padding:13px 16px;background:var(--ink-2);border:1px solid var(--line-d);color:inherit;
+  font:inherit;font-size:15px;border-radius:0}
+.toolbar input[type=search]:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(225,0,0,.18)}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}
+.fchip{padding:9px 14px;background:transparent;border:1px solid var(--line-d);cursor:pointer;font-family:var(--mono);
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-d);transition:.25s}
+.fchip:hover{border-color:var(--red)}
+.fchip.is-on{background:var(--red);border-color:var(--red);color:#fff}
+.pcount{margin:0;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey)}
+.empty{padding:26px;border:1px dashed var(--line-d);color:var(--grey-d);text-align:center}
+[data-theme="light"] .toolbar,[data-theme="light"] .empty{border-color:#d5d5dc}
+[data-theme="light"] .toolbar input[type=search]{background:#fff;border-color:#d5d5dc}
+[data-theme="light"] .fchip{color:#4b4b53;border-color:#d5d5dc}
+
+/* ---------- 6. Casos de estudio ---------- */
+.case{margin-top:22px;border-top:1px solid var(--line-d);padding-top:14px}
+.case summary{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--red-2)}
+.case dl{margin-top:14px;display:grid;gap:12px}
+.case dt{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--grey)}
+.case dd{margin:2px 0 0;font-size:15px;color:var(--grey-d)}
+[data-theme="light"] .case,[data-theme="light"] .case dd{border-color:#d5d5dc;color:#4b4b53}
+/* Marca visible de "aquí va un dato TUYO real": bórrala al rellenar */
+mark.todo{background:transparent;color:var(--red-2);outline:1px dashed var(--red-2);outline-offset:2px;padding:0 4px}
+
+/* ---------- 7. Repos y commits ---------- */
+.repos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:20px}
+.repo{display:flex;flex-direction:column;gap:8px;padding:20px;border:1px solid var(--line-d);background:var(--ink-2);
+  transition:border-color .3s,transform .4s var(--ease)}
+.repo:hover{border-color:var(--red);transform:translateY(-3px)}
+.repo strong{font-family:var(--display);font-stretch:108%;font-size:1.1rem;word-break:break-word}
+.repo-desc{font-size:14px;color:var(--grey-d);flex:1}
+.repo-meta{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--grey)}
+.repo-meta i{font-style:normal}
+.api-msg{color:var(--grey-d);font-size:15px}
+.api-msg a{color:var(--red-2);border-bottom:1px solid currentColor}
+.repos[aria-busy="true"]::before{content:"Cargando desde la API de GitHub…";font-family:var(--mono);font-size:12px;color:var(--grey)}
+.commits{margin-top:18px;border-top:1px solid var(--line-d)}
+.commit{display:grid;grid-template-columns:80px 1fr auto;gap:14px;padding:12px 6px;border-bottom:1px solid var(--line-d);align-items:baseline}
+.commit .sha{font-family:var(--mono);font-size:12px;color:var(--red-2)}
+.commit .when{font-family:var(--mono);font-size:11px;color:var(--grey)}
+.commits[aria-busy="true"]::before{content:"Leyendo historial de commits…";font-family:var(--mono);font-size:12px;color:var(--grey)}
+[data-theme="light"] .repo{background:#fff;border-color:#d5d5dc}
+[data-theme="light"] .commits,[data-theme="light"] .commit{border-color:#d5d5dc}
+@media (max-width:760px){.commit{grid-template-columns:1fr;gap:4px}}
+
+/* ---------- 8. Medios ---------- */
+.tile-art{width:100%;height:auto;margin-top:20px;border:1px solid var(--line)}
+.portrait img{filter:none}                       /* la ilustración SVG mantiene sus colores */
+.demo{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:clamp(50px,7vw,90px);align-items:start}
+.demo video,.demo svg{width:100%;height:auto;border:1px solid var(--line-d);background:#08080a;display:block}
+.demo figcaption{margin-top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--grey);text-transform:uppercase}
+@media (max-width:900px){.demo{grid-template-columns:1fr}}
+/* SVG animado del CLI: cada línea aparece con un retraso (animation-delay = intención: simula escribir) */
+.cli-l{opacity:0;animation:cliIn .01s forwards}
+@keyframes cliIn{to{opacity:1}}
+.cli-caret{animation:blink 1s steps(2) infinite}
+
+/* ---------- 9. Habilidades y servicios ---------- */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,64px);align-items:center}
+.radar{width:100%;max-width:460px;margin:0 auto;display:block}
+.radar .poly{fill:rgba(225,0,0,.22);stroke:var(--red);stroke-width:2;transform-origin:200px 200px;transform:scale(0);
+  transition:transform 1.2s var(--ease)}
+.radar.in .poly{transform:scale(1)}                /* se "infla" al entrar en pantalla (lo activa script.js con .in) */
+.radar .ring{fill:none;stroke:var(--line)}
+.radar .axis{stroke:var(--line)}
+.radar text{font-family:var(--mono);font-size:11px;fill:#3d3d45;letter-spacing:.08em}
+.skill-list{display:grid;gap:14px}
+.skill-list li{display:grid;gap:4px}
+.skill-list b{font-family:var(--display);font-stretch:108%}
+.skill-list span{font-size:14.5px;color:#4b4b53}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:clamp(44px,6vw,80px)}
+.services article{background:var(--paper);padding:26px 22px}
+.services h3{font-size:1.2rem;font-stretch:110%;margin:8px 0 10px;color:var(--ink)}
+.services p{font-size:15px;color:#4b4b53;margin:0}
+@media (max-width:900px){.skills-grid,.services{grid-template-columns:1fr}}
+[data-theme="light"] .section--paper{background:#fff}
+
+/* ---------- 10. Contacto ---------- */
+.alt-channels{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.hint{font-family:var(--mono);font-size:11px;color:var(--grey);margin:6px 0 0}
+.route{margin-top:clamp(40px,6vw,70px);padding:clamp(20px,3vw,34px);border:1px solid var(--line);background:var(--paper-2)}
+.route h3{font-size:1.3rem;font-stretch:110%;margin-bottom:14px;color:var(--ink)}
+.route svg{width:100%;height:auto}
+.route .flow{stroke-dasharray:6 6;animation:dash 1.2s linear infinite}   /* la línea "circula": el dato viaja */
+@keyframes dash{to{stroke-dashoffset:-24}}
+.route text{font-family:var(--mono);font-size:12px;fill:#0b0b0d}
+.route ol{margin-top:16px;padding-left:20px;list-style:decimal;color:#3d3d45;font-size:15px}
+.route li{margin:4px 0}
+
+/* ---------- 11. Proceso ---------- */
+.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d)}
+.dcard{background:var(--ink);padding:26px 22px}
+.dcard h3{font-size:1.15rem;font-stretch:110%;margin:8px 0 10px}
+.dcard p{font-size:14.5px;color:var(--grey-d);margin:0 0 .6em}
+.swatches{display:flex;gap:6px;margin-top:10px}
+.swatches i{width:34px;height:34px;border:1px solid var(--line-d)}
+.adr{margin-top:14px;border-top:1px solid var(--line-d)}
+.adr details{border-bottom:1px solid var(--line-d);padding:14px 4px}
+.adr summary{cursor:pointer;font-family:var(--display);font-stretch:108%;font-weight:700;font-size:1.05rem}
+.adr p{margin:10px 0 0;color:var(--grey-d);font-size:15px;max-width:70ch}
+.log{margin-top:14px}
+.log li{display:grid;grid-template-columns:70px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--line-d);font-size:15px}
+.log b{font-family:var(--mono);font-size:12px;color:var(--red-2)}
+[data-theme="light"] .dgrid,[data-theme="light"] .adr,[data-theme="light"] .adr details,[data-theme="light"] .log li{border-color:#d5d5dc}
+[data-theme="light"] .dgrid{background:#d5d5dc}
+[data-theme="light"] .dcard{background:#f3f3f6}
+[data-theme="light"] .dcard p,[data-theme="light"] .adr p{color:#4b4b53}
+@media (max-width:900px){.dgrid{grid-template-columns:1fr}}
+
+/* ---------- 12. Zona privada ---------- */
+.zbox{max-width:520px;margin:0 auto;padding:clamp(24px,4vw,40px);border:1px solid var(--line);background:var(--paper)}
+.zbox h2{color:var(--ink);font-size:1.6rem;margin-bottom:6px}
+.zbox .form{margin-top:18px}
+.demo-cred{font-family:var(--mono);font-size:12px;color:var(--grey);padding:10px 12px;background:var(--paper-2);border-left:3px solid var(--red)}
+.zone-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-bottom:22px}
+.zone-head p{margin:0;font-family:var(--mono);font-size:12px;color:var(--grey)}
+.note-form{display:flex;gap:10px;flex-wrap:wrap}
+.note-form input{flex:1 1 240px;padding:13px 16px;border:1px solid var(--line);background:var(--paper);font:inherit;color:var(--ink);border-radius:0}
+.note-list{margin-top:18px;border-top:1px solid var(--line)}
+.note-list li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line);color:var(--ink)}
+.note-list li.is-done span{text-decoration:line-through;color:var(--grey)}
+.note-list button{background:none;border:0;cursor:pointer;color:var(--grey);font-size:16px}
+.note-list button:hover{color:var(--red)}
+.note-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.zone-wrap{max-width:760px;margin:0 auto;color:var(--ink)}
+.zone-wrap h2{color:var(--ink)}
+.pcount.dark{color:var(--grey)}
+
+/* ---------- 13. Chatbot ---------- */
+.chat{position:fixed;right:18px;bottom:18px;z-index:950}
+.chat-fab{width:52px;height:52px;border-radius:50%;background:var(--red);border:0;color:#fff;cursor:pointer;display:grid;place-items:center;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .3s var(--ease)}
+.chat-fab:hover{transform:scale(1.08)}
+.chat-panel{position:absolute;right:0;bottom:64px;width:min(360px,calc(100vw - 36px));display:flex;flex-direction:column;
+  background:#111116;color:#fff;border:1px solid var(--line-d);box-shadow:0 30px 70px rgba(0,0,0,.55)}
+.chat-panel header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line-d);
+  font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.chat-panel header button{background:none;border:0;color:#fff;cursor:pointer;font-size:16px}
+.chat-log{height:260px;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{margin:0;padding:10px 12px;font-size:14.5px;line-height:1.5;max-width:88%}
+.msg--bot{background:#1c1c22;align-self:flex-start}
+.msg--user{background:var(--red);align-self:flex-end}
+.msg a{color:var(--red-2);border-bottom:1px solid currentColor}
+.chat-sug{display:flex;gap:6px;flex-wrap:wrap;padding:0 14px 10px}
+.chat-sug button{padding:6px 10px;background:transparent;border:1px solid var(--line-d);color:var(--grey-d);cursor:pointer;font-size:12px}
+.chat-sug button:hover{border-color:var(--red);color:#fff}
+.chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line-d)}
+.chat-form input{flex:1;min-width:0;padding:10px 12px;background:#08080a;border:1px solid var(--line-d);color:#fff;font:inherit;font-size:14px;border-radius:0}
+.chat-form .btn{padding:10px 14px}
