@@ -11,7 +11,7 @@ export const CONFIG = {
 
   // Nombre del repositorio donde subes ESTA web (para commits e issues).
   // TODO: cámbialo por el nombre real de tu repo.
-  REPO: "portfolio",
+  REPO: "AGM-PE",
 
   // Endpoint de Formspree: crea un formulario en https://formspree.io,
   // copia su URL ("https://formspree.io/f/xxxxxxx") y pégala aquí.
