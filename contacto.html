@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — AH</title>
+  <meta property="og:title" content="Contacto — AH">
+  <meta property="og:description" content="Escríbeme: prácticas de empresa, proyectos de ciclo o conversación técnica. Formulario y correo.">
+  <meta property="og:type" content="website">
+  <meta name="description" content="Escríbeme: prácticas de empresa, proyectos de ciclo o conversación técnica. Formulario y correo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ================= CABECERA DE PÁGINA ================= -->
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Contacto</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_05 / CANAL</p>
+        <h1 class="page-title" data-lines>Hablemos de código, o de lo que hay debajo.</h1>
+        <p class="page-intro">Prácticas de empresa, proyectos de ciclo o una charla técnica. Rellena el formulario y te respondo.</p>
+      </div>
+    </section>
+
+    <!-- ================= FORMULARIO ================= -->
+    <section class="section section--paper contact" id="form">
+      <div class="wrap contact-grid">
+
+        <!-- Columna izquierda: formulario -->
+        <div class="contact-form-wrap">
+
+          <!-- Panel de éxito (oculto hasta enviar) -->
+          <div class="form-success" id="formSuccess" hidden>
+            <p class="success-ico" aria-hidden="true">✓</p>
+            <h2>Mensaje preparado.</h2>
+            <p id="successMsg">Se ha abierto tu cliente de correo con el mensaje redactado. Si no se abrió, usa el botón de abajo para copiarlo.</p>
+            <div class="success-actions">
+              <button type="button" class="btn btn--ghost" id="copyMessage">Copiar mensaje</button>
+              <button type="button" class="btn btn--solid" id="resetForm">Enviar otro</button>
+            </div>
+          </div>
+
+          <!-- Formulario. data-mail = destinatario para el envío por correo. -->
+          <form class="form" id="contactForm" action="https://formspree.io/f/mljdajaj" method="post">
+
+            <div class="field">
+              <label for="fName">Nombre <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="fName" name="nombre" autocomplete="name" required minlength="2"
+                     placeholder="Tu nombre" aria-describedby="errName">
+              <p class="err" id="errName" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="fEmail">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="fEmail" name="email" autocomplete="email" required
+                     placeholder="tucorreo@dominio.com" aria-describedby="errEmail">
+              <p class="err" id="errEmail" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="fSubject">Motivo <span class="req" aria-hidden="true">*</span></label>
+              <select id="fSubject" name="motivo" required aria-describedby="errSubject">
+                <option value="" disabled selected>Elige una opción…</option>
+                <option value="FCT / Prácticas">FCT / Prácticas de empresa</option>
+                <option value="Proyecto de ciclo">Proyecto de ciclo</option>
+                <option value="Colaboración">Colaboración técnica</option>
+                <option value="Charla de código">Charla de código</option>
+                <option value="Otro">Otro</option>
+              </select>
+              <p class="err" id="errSubject" role="alert"></p>
+            </div>
+
+            <div class="field">
+              <label for="fMessage">Mensaje <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="fMessage" name="mensaje" rows="6" required minlength="15" maxlength="1000"
+                        placeholder="Cuéntame qué necesitas…" aria-describedby="errMessage charCount"></textarea>
+              <p class="counter"><span id="charCount">0</span> / 1000</p>
+              <p class="err" id="errMessage" role="alert"></p>
+            </div>
+
+            <!-- Campo trampa anti-spam (los bots lo rellenan; los humanos no lo ven) -->
+            <div class="hp" aria-hidden="true">
+              <label for="fSite">No rellenar</label>
+              <input type="text" id="fSite" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="field field--check">
+              <input type="checkbox" id="fConsent" name="consent" required aria-describedby="errConsent">
+              <label for="fConsent">Acepto que mis datos se usen solo para responder a este mensaje.</label>
+              <p class="err" id="errConsent" role="alert"></p>
+            </div>
+
+            <div class="form-actions">
+              <!--<button type="submit" class="btn btn--solid" id="submitBtn">Enviar mensaje</button>-->
+              <button type="submit">Enviar</button>
+              <button type="button" class="btn btn--ghost" id="issueBtn">Enviar como issue de GitHub</button>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+            <p class="hint">El issue de GitHub es público: solo lleva tu mensaje, nunca tu correo.</p>
+          </form>
+        </div>
+
+        <!-- Columna derecha: datos -->
+        <aside class="contact-info">
+          <h3>Información</h3>
+          <!--<div class="mail-row">
+            <a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>
+            <button class="btn btn--copy" id="copyMail" type="button" data-mail="ah.correo@ejemplo.com">Copiar</button>
+          </div>
+          <p class="copy-feedback" id="copyFeedback" role="status"></p>-->
+
+          <dl class="info-list">
+            <div><dt>Nombre</dt><dd>AH</dd></div>
+            <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+            <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+            <div><dt>Respuesta</dt><dd>En 1–2 días laborables</dd></div>
+            <div><dt>Zona</dt><dd>España</dd></div>
+          </dl>
+
+          <ul class="social">
+            <li><a href="https://github.com/01000001-1001000/" rel="noopener">GitHub</a></li>
+            <!--<li><a href="#" rel="noopener">LinkedIn</a></li>-->
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= RECORRIDO DEL DATO (SVG animado + explicación) ================= -->
+    <section class="section section--paper" id="recorrido">
+      <div class="wrap">
+        <div class="route">
+          <h3>El recorrido de tu mensaje</h3>
+          <svg viewBox="0 0 760 230" role="img" aria-labelledby="rtT rtD">
+            <title id="rtT">Diagrama del recorrido de un mensaje</title>
+            <desc id="rtD">El navegador valida el formulario y lo envía a Formspree, que lo reenvía al correo; alternativamente abre un issue de GitHub o el cliente de correo.</desc>
+            <g fill="#fff" stroke="#0b0b0d" stroke-width="2">
+              <rect x="10" y="80" width="150" height="70"/><rect x="300" y="20" width="160" height="70"/>
+              <rect x="300" y="140" width="160" height="70"/><rect x="590" y="20" width="150" height="70"/><rect x="590" y="140" width="150" height="70"/>
+            </g>
+            <g stroke="#e10000" stroke-width="3" fill="none" class="flow"><path d="M160 105 L300 55"/><path d="M160 125 L300 175"/><path d="M460 55 L590 55"/><path d="M460 175 L590 175"/></g>
+            <g text-anchor="middle"><text x="85" y="110">Navegador</text><text x="85" y="130">(valida)</text>
+              <text x="380" y="50">Formspree</text><text x="380" y="70">(POST JSON)</text>
+              <text x="380" y="170">GitHub Issue</text><text x="380" y="190">(etiqueta: contacto)</text>
+              <text x="665" y="55">Mi correo</text><text x="665" y="175">Notificación</text></g>
+          </svg>
+          <ol>
+            <li>Escribes el mensaje y el navegador lo <b>valida</b> (campos, formato de correo, consentimiento y trampa anti-bots).</li>
+            <li>Con el botón principal, <code>fetch</code> envía un <b>POST en JSON</b> a Formspree, que filtra spam y lo reenvía a mi correo.</li>
+            <li>Con el botón de GitHub, se abre un <b>issue prellenado y etiquetado «contacto»</b> y GitHub me notifica.</li>
+            <li>Recibes un panel de éxito con una <b>referencia (AH-XXXX)</b> como acuse de recibo.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">05 / Contacto</p>
+        <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <!--<ul class="social">
+          <li><a href="#form">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>-->
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+        <!--Insert subClaPagIn-->
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
