@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Metadatos básicos de la página MIU-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AH — Entender la máquina, no solo usarla</title>
+  <meta name="description" content="Marca personal de AH, alumno de 1º DAM en el IES Simarro. Programación, proyectos, Python e informática a bajo nivel.">
+  <meta property="og:title" content="AH — Entender la máquina, no solo usarla">
+  <meta property="og:description" content="1º DAM · IES Simarro. Proyectos, Python y bajo nivel.">
+  <meta property="og:type" content="website">
+
+  <!-- Tipografías: display (Archivo) + texto (IBM Plex Sans) + monoespaciada (IBM Plex Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"AH","jobTitle":"Estudiante de DAM","alumniOf":"IES Doctor Lluís Simarro","sameAs":["https://github.com/01000001-1001000"]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Capa de grano/ruído sobre toda la web -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Indicador de progreso de lectura (barra superior) -->
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA FIJA: nombre + navegación ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+
+    <!-- Navegación principal -->
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón de menú en móvil -->
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ================= HERO: nombre + frase + terminal de arranque MIAU.================= -->
+    <section class="hero" id="inicio">
+
+      <!-- Rejilla decorativa de fondo -->
+      <div class="hero-grid" aria-hidden="true"></div>
+
+      <div class="hero-inner">
+        <!-- Columna izquierda: identidad -->
+        <div class="hero-id">
+          <!-- Saludo personalizado: js/personalize.js lo rellena si la URL lleva ?nombre= o ?enfoque= -->
+          <p class="greeting" id="greeting" hidden></p>
+          <p class="eyebrow" data-scramble>SISTEMA / USUARIO / SESIÓN_01</p>
+
+          <!-- Nombre principal -->
+          <h1 class="hero-name" data-lines>AH</h1>
+
+          <!-- Frase de marca -->
+          <p class="hero-phrase" data-lines>Entender la máquina, no solo usarla.</p>
+
+          <p class="hero-desc">
+            Alumno de <strong>1º DAM</strong> en el <strong>IES Simarro</strong>. Tres años de informática:
+            apasionado de la programación y con una obsesión por lo que pasa por debajo de la interfaz.
+          </p>
+
+          <!-- Fila de especificaciones (tipo ficha técnica) -->
+          <dl class="specs">
+            <div><dt>Ciclo</dt><dd>Desarrollo de Aplicaciones Multiplataforma</dd></div>
+            <div><dt>Curso</dt><dd>1º · IES Simarro</dd></div>
+            <div><dt>Lenguaje base</dt><dd>Python</dd></div>
+            <div><dt>Estado</dt><dd class="ok">Disponible para hablar de código y más frikadas.</dd></div>
+          </dl>
+
+          <div class="hero-actions">
+            <a class="btn btn--solid" id="heroCta" href="trabajo.html">Ver proyectos</a>
+            <a class="btn btn--ghost" href="contacto.html">Contactar</a>
+          </div>
+        </div>
+
+        <!-- Columna derecha: consola de arranque -->
+        <aside class="console" aria-label="Consola de arranque">
+          <div class="console-bar">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span class="console-title">ah@miau: ~/sesión</span>
+          </div>
+          <div class="console-body" id="console" role="log" aria-live="polite"></div>
+        </aside>
+      </div>
+
+      <!-- Aviso de scroll -->
+      <div class="scroll-hint" aria-hidden="true"><span></span> scroll</div>
+    </section>
+
+    <!-- ================= CINTA DESLIZANTE DE CONCEPTOS ================= -->
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>Python</span><i>◆</i><span>HTML</span><i>◆</i><span>CSS</span><i>◆</i><span>Línea de comandos</span><i>◆</i><span>Memoria</span><i>◆</i><span>Ensamblador</span><i>◆</i><span>Redes</span><i>◆</i><span>Sistemas</span><i>◆</i><span>Cine</span><i>◆</i>
+        <span>Python</span><i>◆</i><span>HTML</span><i>◆</i><span>CSS</span><i>◆</i><span>Línea de comandos</span><i>◆</i><span>Memoria</span><i>◆</i><span>Ensamblador</span><i>◆</i><span>Redes</span><i>◆</i><span>Sistemas</span><i>◆</i><span>Cine</span><i>◆</i>
+      </div>
+    </div>
+
+    <!-- ================= SECCIÓN: SOBRE MÍ ================= -->
+    <section class="section section--paper about" id="sobre-mi">
+      <div class="wrap about-grid">
+
+        <!-- Columna pegajosa (sticky): título + retrato -->
+        <div class="about-sticky">
+          <p class="section-num">01 / Sobre mí</p>
+          <h2 class="section-title" data-lines>Tres años mirando la pantalla… y lo que había detrás.</h2>
+
+          <figure class="portrait kb">
+            <img src="assets/img/escritorio.svg" width="400" height="500" alt="Ilustración de un escritorio con terminal y editor de código" fetchpriority="low">
+            <figcaption>Estudiante del · IES Doctor Lluis Simarro</figcaption>
+          </figure>
+        </div>
+
+        <!-- Columna de contenido -->
+        <div class="about-body">
+          <p class="lead" data-reveal>
+            He estudiado informática durante 3 años. En ese tiempo he aprendido diversidad de conceptos. Gracias a ellos,
+            he podido desarrollar: una <strong>web corporativa para una empresa</strong>, <strong>aplicaciones de consola simples</strong>
+            y un montón de pequeños proyectos que, por sí mismos no son suficientemente relevantes para ser mencionados,
+            pero que en conjunto, me han enseñado mucho.
+          </p>
+
+          <p data-reveal>
+            Lo que me motiva en mi carrera de informático es que: <em>no me basta con que funcione</em>.
+            Quiero saber qué hace el sistema operativo cuando pido memoria, qué viaja por la red cuando pulso
+            Enter y por qué un programa se cae por un byte mal colocado.
+          </p>
+
+          <!-- Cita destacada -->
+          <blockquote class="pull" data-reveal>
+            «Cualquiera aprende a usar una herramienta. Yo quiero saber cómo se construye bit a bit.»
+          </blockquote>
+
+          <!-- Contadores animados -->
+          <div class="stats">
+            <div class="stat" data-reveal><span class="stat-num" data-count="3">0</span><span class="stat-lbl">Años estudiando informática</span></div>
+            <div class="stat" data-reveal><span class="stat-num" data-count="1">0</span><span class="stat-lbl">Curso del ciclo DAM</span></div>
+            <div class="stat" data-reveal><span class="stat-num" data-count="10" data-suffix="+">0</span><span class="stat-lbl">Proyectos y prácticas</span></div>
+            <div class="stat" data-reveal><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-lbl">Ganas de desmontarlo todo</span></div>
+          </div>
+
+          <!-- Ficha del centro -->
+          <table class="facts">
+            <caption class="sr-only">Ficha académica</caption>
+            <tr><th scope="row">Centro</th><td>IES Doctor Lluis Simarro</td></tr>
+            <tr><th scope="row">Ciclo</th><td>1º — Desarrollo de Aplicaciones Multiplataforma</td></tr>
+            <tr><th scope="row">Base</th><td>Programación, sistemas, marcas, lenguajes de marcado</td></tr>
+            <tr><th scope="row">En marcha</th><td>Conocimientos sesgados de nivel de técnico</td></tr>
+          </table>
+
+          <!-- Atajos a las páginas interiores -->
+          <nav class="page-links" aria-label="Secciones del sitio">
+            <a href="trabajo.html"><span>02</span>Lo que he hecho<em>Proyectos y prácticas</em></a>
+            <a href="gustos.html"><span>03</span>Me gusta<em>Código, cine y bajo nivel</em></a>
+            <a href="bajo-capo.html"><span>04</span>Bajo el capó<em>Conversor y ruta</em></a>
+            <a href="contacto.html"><span>05</span>Contacto<em>Escríbeme un mensaje</em></a>
+            <a href="proceso.html"><span>06</span>Proceso<em>Decisiones, commits y prompts</em></a>
+            <a href="zona.html"><span>07</span>Zona privada<em>Login demo y bitácora</em></a>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECCIÓN: HABILIDADES (radar SVG animado) + SERVICIOS + FORMACIÓN ================= -->
+    <section class="section section--paper" id="habilidades">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="section-num">/ Habilidades</p>
+          <h2 class="section-title" data-lines>Lo que sé hacer y hasta dónde llego.</h2>
+          <p class="section-lead">Una autoevaluación honesta. El radar se dibuja al entrar en pantalla; los números son mi nivel real, no el deseado.</p>
+        </header>
+
+        <div class="skills-grid">
+          <!-- SVG propio generado con trigonometría: 6 ejes a 60° -->
+          <svg class="radar" data-reveal viewBox="0 0 400 400" role="img" aria-labelledby="radT radD"><title id="radT">Radar de habilidades</title><desc id="radD">Autoevaluación de 0 a 100: Python 80, Web 70, Consola 75, Sistemas 60, Redes 45, C y ensamblador 35.</desc><polygon class="ring" points="200.0,167.5 228.1,183.8 228.1,216.2 200.0,232.5 171.9,216.2 171.9,183.8"/><polygon class="ring" points="200.0,135.0 256.3,167.5 256.3,232.5 200.0,265.0 143.7,232.5 143.7,167.5"/><polygon class="ring" points="200.0,102.5 284.4,151.2 284.4,248.8 200.0,297.5 115.6,248.8 115.6,151.2"/><polygon class="ring" points="200.0,70.0 312.6,135.0 312.6,265.0 200.0,330.0 87.4,265.0 87.4,135.0"/><line class="axis" x1="200" y1="200" x2="200.0" y2="70.0"/><line class="axis" x1="200" y1="200" x2="312.6" y2="135.0"/><line class="axis" x1="200" y1="200" x2="312.6" y2="265.0"/><line class="axis" x1="200" y1="200" x2="200.0" y2="330.0"/><line class="axis" x1="200" y1="200" x2="87.4" y2="265.0"/><line class="axis" x1="200" y1="200" x2="87.4" y2="135.0"/><polygon class="poly" points="200.0,96.0 278.8,154.5 284.4,248.8 200.0,278.0 149.3,229.3 160.6,177.2"/><text x="200.0" y="44.0" text-anchor="middle" dominant-baseline="middle">PYTHON</text><text x="335.1" y="122.0" text-anchor="start" dominant-baseline="middle">WEB</text><text x="335.1" y="278.0" text-anchor="start" dominant-baseline="middle">CONSOLA</text><text x="200.0" y="356.0" text-anchor="middle" dominant-baseline="middle">SISTEMAS</text><text x="64.9" y="278.0" text-anchor="end" dominant-baseline="middle">REDES</text><text x="64.9" y="122.0" text-anchor="end" dominant-baseline="middle">C / ASM</text></svg>
+          <ul class="skill-list">
+            <li><b>Python</b><span>Scripts y aplicaciones CLI con funciones, ficheros y excepciones.</span></li>
+            <li><b>Web</b><span>HTML semántico, CSS responsive con variables y JavaScript modular.</span></li>
+            <li><b>Consola</b><span>Navegar, automatizar y encadenar comandos en Linux.</span></li>
+            <li><b>Sistemas</b><span>Procesos, memoria (pila y montón) y llamadas al sistema.</span></li>
+            <li><b>Redes y C / ASM</b><span>En aprendizaje: cabeceras, protocolos y primeras prácticas.</span></li>
+          </ul>
+        </div>
+
+        <div class="services">
+          <article data-reveal><span class="section-num">Servicio 01</span><h3>Webs estáticas accesibles</h3><p>Páginas rápidas, semánticas y responsive, sin dependencias innecesarias.</p></article>
+          <article data-reveal><span class="section-num">Servicio 02</span><h3>Utilidades de consola en Python</h3><p>Herramientas pequeñas con validación de datos y mensajes de error claros.</p></article>
+          <article data-reveal><span class="section-num">Servicio 03</span><h3>Documentación técnica</h3><p>Apuntes y guías en Markdown, versionados con Git, para que otros lo entiendan.</p></article>
+        </div>
+
+        <h3 class="list-title" style="margin:clamp(44px,6vw,80px) 0 14px">Formación</h3>
+        <table class="facts">
+          <caption class="sr-only">Formación académica</caption>
+          <tr><th scope="row">Antes</th><td>SMX (Sistemas Microinformáticos y Redes) — IES Doctor Lluís Simarro</td></tr>
+          <tr><th scope="row">Ahora</th><td>1º DAM (Desarrollo de Aplicaciones Multiplataforma) — IES Doctor Lluís Simarro</td></tr>
+          <tr><th scope="row">Por mi cuenta</th><td>Lenguaje C, ensamblador, protocolos de red y línea de comandos</td></tr>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= PIE DE PÁGINA: contacto ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+
+      <!-- Llamada principal -->
+      <div class="footer-cta">
+        <p class="section-num">05 / Contacto</p>
+        <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+
+        <!-- Correo con botón de copiar -->
+        <div class="mail-row">
+          <!--<a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>-->
+          <a class="btn btn--copy" href="contacto.html">Contacto</a>
+        </div>
+        <p class="copy-feedback" id="copyFeedback" role="status"></p>
+
+        <!-- Enlaces de contacto -->
+        <!--<ul class="social">
+          <li><a href="contacto.html">Formulario</a></li>
+          <li><a href="https://github.com/01000001-1001000/" rel="noopener">GitHub</a></li>-->
+          <!--<li><a href="#" rel="noopener">LinkedIn</a></li>-->
+        <!--</ul>-->
+      </div>
+
+      <!-- Ficha lateral -->
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>Al Hayy Castella</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Doctor Lluis Simarro <br>SMX - IES Doctor Lluis Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="#inicio">Volver arriba</a>
+        <!--Insert subClaPagIn-->
+      </aside>
+    </div>
+
+    <!-- Barra legal -->
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
