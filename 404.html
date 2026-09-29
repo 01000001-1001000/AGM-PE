@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada — AH</title>
+  <meta name="description" content="La página que buscas no existe.">
+  <meta property="og:title" content="Página no encontrada — AH">
+  <meta property="og:description" content="La página que buscas no existe.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- ================= CABECERA ================= -->
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">AH</span>
+      <span class="brand-sub">1º DAM · IES&nbsp;Simarro</span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="index.html" class="nav-link">Sobre mí</a></li>
+        <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
+        <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
+        <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
+        <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>404</b></p>
+        <p class="eyebrow" data-scramble>ERROR_404 / NO ENCONTRADO</p>
+        <h1 class="page-title" data-lines>Esta ruta no existe.</h1>
+        <p class="page-intro">Puede que el enlace esté roto o la página se haya movido. Vuelve al inicio o escríbeme.</p>
+      </div>
+    </section>
+    <section class="section section--ink"><div class="wrap"><a class="btn btn--solid" href="index.html">Volver al inicio</a> <a class="btn btn--ghost" href="contacto.html">Contactar</a></div></section>
+  </main>
+  <!-- ================= PIE ================= -->
+  <footer class="footer" id="contacto">
+    <div class="wrap footer-grid">
+      <div class="footer-cta">
+        <p class="section-num">Contacto</p>
+        <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
+        <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
+        <!--<ul class="social">
+          <li><a href="#form">Formulario</a></li>
+          <li><a href="#" rel="noopener">GitHub</a></li>
+          <li><a href="#" rel="noopener">LinkedIn</a></li>
+        </ul>-->
+      </div>
+      <aside class="footer-meta">
+        <h3>Ficha</h3>
+        <dl>
+          <div><dt>Nombre</dt><dd>AH</dd></div>
+          <div><dt>Estudios</dt><dd>1º DAM — IES Simarro</dd></div>
+          <div><dt>Perfil</dt><dd>Programación · Bajo nivel</dd></div>
+          <div><dt>Ubicación</dt><dd>España</dd></div>
+        </dl>
+        <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+        <p><a class="footer-link" href="proceso.html">Proceso</a><a class="footer-link" href="zona.html">Zona privada · demo</a></p>
+      </aside>
+    </div>
+    <div class="wrap footer-bar">
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
