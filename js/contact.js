@@ -88,21 +88,6 @@ export function initContact() {
   }
 
   /* ---------- Canal A: Formspree (fetch + timeout) ---------- */
-  /*async function sendAjax(data) {
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), 10000);
-    try {
-      const res = await fetch(CONFIG.FORM_ENDPOINT, {
-        method: "POST", signal: ctrl.signal,
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        // _replyto y _subject son campos especiales que Formspree entiende.
-        body: JSON.stringify({ ...data, _replyto: data.email, _subject: `[Web AH] ${data.motivo} — ${data.nombre}` }),
-      });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-    } finally { clearTimeout(timer); }
-  }*/
-
-    /* ---------- Canal A: Formspree (fetch + timeout) ---------- */
   async function sendAjax(data) {
     const ctrl = new AbortController();
     const timer = setTimeout(() => ctrl.abort(), 10000);
@@ -124,25 +109,7 @@ export function initContact() {
   }
 
   /* ---------- Envío principal ---------- */
-  /*form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const data = collect(); if (!data) return;
-    submitBtn.disabled = true; issueBtn.disabled = true; setStatus("Enviando…");
-    if (CONFIG.FORM_ENDPOINT) {
-      try { await sendAjax(data); finish("Tu mensaje se ha enviado correctamente. Te responderé pronto.", data); }
-      catch (err) {
-        submitBtn.disabled = false; issueBtn.disabled = false;
-        setStatus("No se pudo enviar. Reinténtalo o usa el botón de GitHub / correo.", "bad");
-      }
-    } else {
-      // Sin endpoint configurado: plan B (mailto).
-      window.location.href = mailtoUrl(data);
-      finish("Se ha abierto tu cliente de correo con el mensaje redactado. Si no se abrió, cópialo abajo.", data);
-    }
-  });*/
-
-  /* ---------- Envío principal ---------- */
-  form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const data = collect(); if (!data) return;
     submitBtn.disabled = true; issueBtn.disabled = true; setStatus("Enviando…");
@@ -155,6 +122,11 @@ export function initContact() {
         setStatus("No se pudo enviar. Reinténtalo o usa el botón de GitHub / correo.", "bad");
       }
     } else {
+      // Sin endpoint configurado: plan B (mailto).
+      window.location.href = mailtoUrl(data);
+      finish("Se ha abierto tu cliente de correo con el mensaje redactado. Si no se abrió, cópialo abajo.", data);
+    }
+  });
 
   /* ---------- Canal B: issue de GitHub etiquetado ---------- */
   issueBtn.addEventListener("click", () => {
