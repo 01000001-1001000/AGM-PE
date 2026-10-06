@@ -77,7 +77,7 @@
             <button type="button" class="fchip" data-filter="web" aria-pressed="false">Web</button>
             <button type="button" class="fchip" data-filter="python" aria-pressed="false">Python</button>
             <button type="button" class="fchip" data-filter="sistemas" aria-pressed="false">Sistemas</button>
-            <button type="button" class="fchip" data-filter="git" aria-pressed="false">Git</button>
+            <button type="button" class="fchip" data-filter="n8n" aria-pressed="false">n8n</button>
           </div>
           <p class="pcount" id="projCount" role="status" aria-live="polite"></p>
           <button type="button" class="fchip" id="projReset">Limpiar</button>
@@ -85,14 +85,14 @@
 
         <div class="stack">
           <!-- Proyecto 01: data-tags alimenta el filtro de js/projects.js -->
-          <article class="stack-card" style="--i:0" data-tags="web html css">
+          <article class="stack-card" style="--i:0" data-tags="web html css encargos">
             <div class="card-media kb"><img src="assets/img/proj-web.svg" width="600" height="450" loading="lazy" alt="Maqueta esquemática de una web corporativa"></div>
             <div class="card-text">
               <span class="card-index">01</span>
               <h3>Web corporativa</h3>
-              <p class="card-role">Diseño y maquetación · HTML + CSS</p>
+              <p class="card-role">Desarollo · HTML + CSS</p>
               <p>Diseño y desarollo de la primera web corporativa para la empresa Pewenche y participación consultiva en el desarollo de su segunda versión</p>
-              <ul class="tags"><li>HTML5</li><li>CSS</li><li>Semántica</li><li>Responsive</li></ul>
+              <ul class="tags"><li>HTML5</li><li>CSS</li></ul>
               <!-- Caso de estudio: problema → solución → resultado → métricas -->
               <details class="case">
                 <summary>Caso de estudio</summary>
@@ -131,39 +131,39 @@
             <div class="card-media kb"><img src="assets/img/proj-lab.svg" width="600" height="450" loading="lazy" alt="Mapa de memoria de un proceso con código, datos, montón y pila"></div>
             <div class="card-text">
               <span class="card-index">03</span>
-              <h3>Laboratorio de bajo nivel</h3>
-              <p class="card-role">Autoaprendizaje · Sistemas</p>
-              <p>Prácticas de memoria, procesos y redes: ver el mapa de un programa, abrir un binario, mirar cabeceras y medir lo que cuesta cada operación.</p>
+              <h3>Implementación de servicios en red</h3>
+              <p class="card-role">Linux · Sistemas</p>
+              <p>Configuración de servicios de red DHCP, DNS, FTP y enrutamiento.</p>
               <ul class="tags"><li>Sistemas</li><li>Redes</li><li>Linux</li><li>Depuración</li></ul>
               <!-- Caso de estudio: problema → solución → resultado → métricas -->
               <details class="case">
                 <summary>Caso de estudio</summary>
                 <dl>
-                  <div><dt>Problema</dt><dd>Entender qué hace realmente un programa por debajo: dónde vive cada variable y qué viaja por la red.</dd></div>
-                  <div><dt>Solución</dt><dd>Prácticas en Linux: inspeccionar el mapa de memoria de un proceso, examinar binarios, leer cabeceras de red y medir tiempos de operaciones.</dd></div>
-                  <div><dt>Resultado</dt><dd>Sé explicar la diferencia entre pila y montón, y lo aplico en esta web: el <a href="bajo-capo.html">conversor de «Bajo el capó»</a> muestra un número en hex, binario y bytes.</dd></div>
-                  <div><dt>Métricas</dt><dd>Prácticas realizadas: <mark class="todo">[nº]</mark> · Herramientas usadas: <mark class="todo">[lista]</mark></dd></div>
+                  <div><dt>Problema</dt><dd>Necesidad de servicios de red personalizados según necesidades específicas con control sobre los hosts.</dd></div>
+                  <div><dt>Solución</dt><dd>Implementación de servidores de servicios con los parámetros de configuración y personalización de la red requeridos</dd></div>
+                  <div><dt>Resultado</dt><dd>Red LAN totalmente controlada y parametrizada según necesidad de proyectos.</dd></div>
+                  <div><dt>Métricas</dt><dd>Nivel de control: <mark class="todo">95%</mark> · Eficacia según exigencias: <mark class="todo">100%</mark></dd></div>
                 </dl>
               </details>
             </div>
           </article>
           <!-- Proyecto 04: data-tags alimenta el filtro de js/projects.js -->
-          <article class="stack-card" style="--i:3" data-tags="git estudio markdown">
+          <article class="stack-card" style="--i:3" data-tags="n8n automatizaciones encargos">
             <div class="card-media kb"><img src="assets/img/proj-notes.svg" width="600" height="450" loading="lazy" alt="Apuntes en Markdown y grafo de ramas de Git"></div>
             <div class="card-text">
               <span class="card-index">04</span>
-              <h3>Clases, retos y apuntes abiertos</h3>
-              <p class="card-role">Continuo · Ciclo DAM</p>
-              <p>Todo lo que estudio lo resumo en ficheros propios. Si no lo sé explicar en una hoja, todavía no lo he entendido.</p>
-              <ul class="tags"><li>Markdown</li><li>Git</li><li>Estudio</li></ul>
+              <h3>Automatizaciones en n8n</h3>
+              <p class="card-role">Diseño · n8n</p>
+              <p>Desarollo de un sistema automatizado con n8n para la empresa Leads Locales.</p>
+              <ul class="tags"><li>n8n</li><li>Automatizaciones</li></ul>
               <!-- Caso de estudio: problema → solución → resultado → métricas -->
               <details class="case">
                 <summary>Caso de estudio</summary>
                 <dl>
-                  <div><dt>Problema</dt><dd>Estudiar de forma dispersa hace que se olvide lo aprendido y no haya evidencia del progreso.</dd></div>
-                  <div><dt>Solución</dt><dd>Resúmenes en Markdown, un repositorio de Git con commits pequeños y ramas para cada tema o práctica.</dd></div>
-                  <div><dt>Resultado</dt><dd>Un archivo consultable donde repasar antes de un examen y donde se ve la evolución de lo aprendido.</dd></div>
-                  <div><dt>Métricas</dt><dd>Ficheros de apuntes: <mark class="todo">[nº]</mark> · Commits: <mark class="todo">[nº]</mark></dd></div>
+                  <div><dt>Problema</dt><dd>Necesidad de automatización de ciertas labores en la empresa.</dd></div>
+                  <div><dt>Solución</dt><dd>Desarollo de un proyecto de prueba con un flujo automatizado en n8n.</dd></div>
+                  <div><dt>Resultado</dt><dd>Una serie de flujos automatizados funcionales en base a los criterios iniciales</dd></div>
+                  <div><dt>Métricas</dt><dd>Nivel de desarollo: <mark class="todo">Medio</mark> · Progreso: <mark class="todo">90%</mark></dd></div>
                 </dl>
               </details>
             </div>
@@ -175,8 +175,8 @@
         <div class="demo">
           <figure>
             <video controls preload="none" poster="assets/img/proj-cli.svg" width="600" height="450">
-              <source src="media/demo-cli.webm" type="video/webm">
-              <source src="media/demo-cli.mp4" type="video/mp4">
+              <source src="media/docu.webm" type="video/webm">
+              <source src="media/docu.mp4" type="video/mp4">
               <p>Tu navegador no reproduce vídeo. Mira la animación de al lado.</p>
             </video>
             <figcaption>Demo grabada de la agenda CLI</figcaption>
