@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Apuntes en Markdown y un grafo de ramas de Git">
+  <rect width="600" height="450" fill="#141418"/>
+  <rect x="50" y="50" width="240" height="350" fill="#fff"/>
+  <g fill="#0b0b0d"><rect x="70" y="76" width="140" height="16"/></g>
+  <g fill="#c9c9d2"><rect x="70" y="112" width="190" height="8"/><rect x="70" y="130" width="170" height="8"/><rect x="70" y="148" width="185" height="8"/><rect x="70" y="190" width="150" height="8"/><rect x="70" y="208" width="190" height="8"/></g>
+  <rect x="70" y="240" width="190" height="60" fill="#0b0b0d"/><rect x="70" y="330" width="120" height="8" fill="#c9c9d2"/>
+  <g stroke="#2b2b33" stroke-width="3" fill="none"><path d="M370 70 V380"/><path d="M370 160 C420 160 440 200 440 240 V300 C440 330 400 340 370 340"/></g>
+  <g fill="#e10000"><circle cx="370" cy="70" r="10"/><circle cx="370" cy="160" r="10"/><circle cx="370" cy="340" r="10"/><circle cx="370" cy="380" r="10"/></g>
+  <g fill="#fff"><circle cx="440" cy="250" r="10"/><circle cx="440" cy="290" r="10"/></g>
+  <g font-family="monospace" font-size="13" fill="#9a9aa4"><text x="395" y="75">main</text><text x="465" y="255">rama: tema-claro</text></g>
+</svg>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Maqueta esquemática de una web corporativa">
+  <rect width="600" height="450" fill="#141418"/>
+  <rect x="40" y="40" width="520" height="370" fill="#0b0b0d" stroke="#2b2b33"/>
+  <rect x="40" y="40" width="520" height="28" fill="#1c1c22"/>
+  <circle cx="58" cy="54" r="5" fill="#e10000"/><circle cx="76" cy="54" r="5" fill="#33333c"/><circle cx="94" cy="54" r="5" fill="#33333c"/>
+  <rect x="60" y="88" width="60" height="16" fill="#e10000"/>
+  <g fill="#33333c"><rect x="340" y="92" width="50" height="8"/><rect x="404" y="92" width="50" height="8"/><rect x="468" y="92" width="70" height="8"/></g>
+  <rect x="60" y="130" width="300" height="26" fill="#fff"/><rect x="60" y="166" width="220" height="26" fill="#fff"/>
+  <g fill="#6f6f78"><rect x="60" y="210" width="260" height="8"/><rect x="60" y="226" width="230" height="8"/></g>
+  <rect x="60" y="252" width="110" height="30" fill="#e10000"/>
+  <g fill="#1c1c22" stroke="#2b2b33"><rect x="60" y="310" width="150" height="80"/><rect x="225" y="310" width="150" height="80"/><rect x="390" y="310" width="150" height="80"/></g>
+  <rect x="400" y="130" width="140" height="150" fill="#1c1c22" stroke="#e10000"/>
+</svg>

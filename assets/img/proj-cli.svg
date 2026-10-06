@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Terminal con un menú de aplicación de consola en Python">
+  <rect width="600" height="450" fill="#141418"/>
+  <rect x="40" y="40" width="520" height="370" fill="#08080a" stroke="#2b2b33"/>
+  <rect x="40" y="40" width="520" height="28" fill="#1c1c22"/>
+  <circle cx="58" cy="54" r="5" fill="#e10000"/><circle cx="76" cy="54" r="5" fill="#33333c"/><circle cx="94" cy="54" r="5" fill="#33333c"/>
+  <g font-family="monospace" font-size="17">
+    <text x="64" y="106" fill="#e10000">$ python agenda.py</text>
+    <text x="64" y="146" fill="#fff">=== AGENDA ===</text>
+    <text x="64" y="176" fill="#9a9aa4">1) Añadir contacto</text>
+    <text x="64" y="202" fill="#9a9aa4">2) Buscar contacto</text>
+    <text x="64" y="228" fill="#9a9aa4">3) Guardar en fichero</text>
+    <text x="64" y="254" fill="#9a9aa4">0) Salir</text>
+    <text x="64" y="300" fill="#fff">Opción: 7</text>
+    <text x="64" y="330" fill="#ff6a6a">Error: elige una opción entre 0 y 3</text>
+    <text x="64" y="366" fill="#7ee0a4">Opción: _</text>
+  </g>
+</svg>

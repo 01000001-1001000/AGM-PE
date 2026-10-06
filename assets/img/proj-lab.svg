@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Mapa de memoria de un proceso: código, datos, heap y pila">
+  <rect width="600" height="450" fill="#141418"/>
+  <g font-family="monospace" font-size="14" fill="#fff">
+    <rect x="150" y="50" width="300" height="70" fill="#1c1c22" stroke="#2b2b33"/><text x="170" y="92">pila (stack)  ↓</text>
+    <rect x="150" y="120" width="300" height="60" fill="#0b0b0d" stroke="#2b2b33" stroke-dasharray="5 5"/><text x="170" y="155" fill="#6f6f78">… libre …</text>
+    <rect x="150" y="180" width="300" height="70" fill="#1c1c22" stroke="#e10000"/><text x="170" y="222">montón (heap)  ↑</text>
+    <rect x="150" y="250" width="300" height="60" fill="#1c1c22" stroke="#2b2b33"/><text x="170" y="286">datos</text>
+    <rect x="150" y="310" width="300" height="70" fill="#e10000"/><text x="170" y="352">código / texto</text>
+  </g>
+  <g font-family="monospace" font-size="12" fill="#6f6f78"><text x="465" y="60">0x7FFF…</text><text x="465" y="380">0x0040…</text></g>
+</svg>
