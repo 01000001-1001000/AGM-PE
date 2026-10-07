@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 270" width="640" height="270" role="img" aria-labelledby="t d">
+  <title id="t">Consola de Python convirtiendo 2026 a hexadecimal, binario y bytes</title>
+  <desc id="d">Animación: aparecen una a una las líneas de una sesión de Python que convierte el número 2026 a 0x7ea, 0b11111101010 y 4 bytes.</desc>
+  <style>
+    .m{font:500 15px "IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace}
+    .p{fill:#e10000}.w{fill:#fff}.g{fill:#8a8a94}.ok{fill:#7ee787}
+    .l{opacity:0;animation:in .45s ease-out forwards}
+    .l1{animation-delay:.3s}.l2{animation-delay:1.3s}.l3{animation-delay:2.3s}
+    .l4{animation-delay:3.1s}.l5{animation-delay:4.1s}.l6{animation-delay:4.9s}
+    @keyframes in{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
+    .cur{animation:blink 1s steps(1) infinite;animation-delay:5.4s;opacity:0}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    @media (prefers-reduced-motion:reduce){.l{animation:none;opacity:1}.cur{animation:none;opacity:1}}
+  </style>
+  <rect width="640" height="270" rx="10" fill="#0b0b0d"/>
+  <rect width="640" height="34" rx="10" fill="#17171b"/><rect y="20" width="640" height="14" fill="#17171b"/>
+  <circle cx="22" cy="17" r="6" fill="#e10000"/><circle cx="42" cy="17" r="6" fill="#6f6f78"/><circle cx="62" cy="17" r="6" fill="#6f6f78"/>
+  <text x="320" y="21" text-anchor="middle" class="m g" style="font-size:12px">python3 — bajo el capó</text>
+  <g class="m">
+    <text class="l l1" x="22" y="66"><tspan class="p">$</tspan><tspan class="w"> python3</tspan></text>
+    <text class="l l2" x="22" y="96"><tspan class="p">&gt;&gt;&gt;</tspan><tspan class="w"> n = 2026</tspan></text>
+    <text class="l l3" x="22" y="126"><tspan class="p">&gt;&gt;&gt;</tspan><tspan class="w"> hex(n), bin(n)</tspan></text>
+    <text class="l l4" x="22" y="156"><tspan class="ok">('0x7ea', '0b11111101010')</tspan></text>
+    <text class="l l5" x="22" y="186"><tspan class="p">&gt;&gt;&gt;</tspan><tspan class="w"> n.to_bytes(4, 'big')</tspan></text>
+    <text class="l l6" x="22" y="216"><tspan class="ok">b'\x00\x00\x07\xea'</tspan></text>
+    <text x="22" y="246"><tspan class="p">&gt;&gt;&gt;</tspan></text>
+    <rect class="cur" x="62" y="233" width="9" height="16" fill="#fff"/>
+  </g>
+</svg>
