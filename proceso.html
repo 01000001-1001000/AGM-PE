@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="extras.css">
@@ -96,7 +96,12 @@
     <section class="section section--ink" id="historial" style="padding-top:0">
       <div class="wrap">
         <h3 class="list-title">Historial de commits, en directo</h3>
-        <p class="section-lead" style="margin:0">Leído de la API de GitHub. Los mensajes cuentan decisiones, no solo «cambios».</p>
+        <p class="section-lead" style="margin:0">Leído de la API de GitHub. Los primeros commits son de mi etapa de aprendizaje y llevan mensajes cortos; a partir de la v3 el objetivo es que cada mensaje explique la decisión, no solo el «cambio».</p>
+        <figure class="fig">
+          <img src="assets/img/#" width="720" height="260" loading="lazy"
+               alt="Esquema: la rama main recibe, mediante pull request, las ramas feat/contacto y fix/fuentes">
+          <figcaption>Flujo que seguiré desde la v3: una rama por mejora, pull request y fusión en main.</figcaption>
+        </figure>
         <ol class="commits" id="commits" aria-live="polite" aria-busy="true"></ol>
         <p style="margin-top:22px"><a class="btn btn--ghost" id="promptsLink" href="#">Órdenes a la IA archivadas</a>
            <a class="btn btn--ghost" id="issuesLink" href="#">Issues y tablero</a></p>
