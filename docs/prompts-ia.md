@@ -43,7 +43,7 @@ Regla de trabajo: la IA propone; yo decido, pruebo y reviso. Cada entrada indica
 
 ## P6 — Revisión de la versión corregida y arreglos finales
 - Fecha: 11/10/2026
-- Prompts (literales): "Vale, aquí está la versión corregida." y, tras la propuesta de la IA, "Sí, desde luego. Y también explícame más en detalle qué quieres decir con comandos para la rama docs/readme-lighthouse y su PR a main."
+- Prompts (literales): "Vale, aquí está la versión corregida." y, tras la propuesta de la IA, "Sí, desde luego. Y también explícame más en detalle qué quieres decir con comandos para la rama docs/readme-lighthouse y su PR a main." Después, "Pero no lo entiendo. El merge está hecho. No puedo volver a hacerlo desde github. Se suponía que un merge se hace con git merge, no esto. ¿Verdad?" y "Vale, aquí he hecho los cambios. El resto de cosas siguen igual."
 - Adjuntos: `subo.zip` (web sin `.git`), `histo.txt` y `ramas.txt` con el historial y las ramas.
-- Resultado de la IA: nueva estimación (92/100), la detección de que P5 y el ADR-0009 describían una práctica que el historial todavía no mostraba, y los arreglos de esta rama: erratas del README, enlace a la captura de Lighthouse, referencia rota a `.anot` en el ADR-0009, corrección de P5 y esta entrada.
-- Qué hice yo: apliqué los cambios en la rama `docs/readme-lighthouse` y los publiqué con git merge --no-ff a main.
+- Resultado de la IA: nueva estimación (92/100 y, tras aplicar los cambios, 93/100), la aclaración de que `git merge` en local y una pull request son dos formas de hacer la misma fusión, la detección de que P5 y el ADR-0009 describían una práctica que el historial todavía no mostraba, y los arreglos de esta rama: erratas del README, enlace a la captura de Lighthouse, referencia rota a `.anot` en el ADR-0009, corrección de P5 y esta entrada.
+- Qué hice yo: apliqué los cambios en la rama `docMod` (tres commits, uno por archivo) y los publiqué con `git merge --no-ff` a `main` (commit `c46ba7f`). Elegí `git merge` en local en lugar de una pull request, así que no hay PR en GitHub.
