@@ -39,4 +39,11 @@ Regla de trabajo: la IA propone; yo decido, pruebo y reviso. Cada entrada indica
 - Prompts (literales): "Hazme la evaluación completa con la rúbirca, con la nota estimada de cada criterio, sí." y, tras recibirla, "Sí, por favor."
 - Adjuntos: `subo1.zip` (web sin `.git`), más `historualcorec.txt` y `ramasCorec.txt` con el historial y las ramas.
 - Resultado de la IA: informe con una nota estimada de 89/100, la detección de que `main` y `labroom` no comparten historia, este archivo, el ADR-0008 (rendimiento), el ADR-0009 (flujo de git) y la guía de comandos para ramas y pull requests.
-- Qué hice yo: comprobé el contenido de cada archivo antes de subirlo y lo publiqué mediante ramas y pull requests (ver ADR-0009 y la pestaña *Pull requests* del repositorio).
+- Qué hice yo: apliqué los archivos el 11/10/2026 en commits separados (`7a04ccd` y `c352a33` para los ADR, `69db701` para este archivo y `b88b93b` para `proceso.html`), añadí la captura de Lighthouse (`e36a0b2`) y uní `labroom` con `main` (`b65c260`). Esos commits se hicieron directamente, sin pull request.
+
+## P6 — Revisión de la versión corregida y arreglos finales
+- Fecha: 11/10/2026
+- Prompts (literales): "Vale, aquí está la versión corregida." y, tras la propuesta de la IA, "Sí, desde luego. Y también explícame más en detalle qué quieres decir con comandos para la rama docs/readme-lighthouse y su PR a main."
+- Adjuntos: `subo.zip` (web sin `.git`), `histo.txt` y `ramas.txt` con el historial y las ramas.
+- Resultado de la IA: nueva estimación (92/100), la detección de que P5 y el ADR-0009 describían una práctica que el historial todavía no mostraba, y los arreglos de esta rama: erratas del README, enlace a la captura de Lighthouse, referencia rota a `.anot` en el ADR-0009, corrección de P5 y esta entrada.
+- Qué hice yo: apliqué los cambios en la rama `docs/readme-lighthouse` y los publiqué con git merge --no-ff a main.
