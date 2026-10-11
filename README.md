@@ -74,3 +74,22 @@ todas las imágenes, estructura de encabezados coherente y animaciones que se de
 - Decisiones de arquitectura: [`docs/ADR.md`](docs/ADR.md)
 - Órdenes a la IA archivadas: [`docs/prompts-ia.md`](docs/prompts-ia.md)
 - Historial e iteraciones: página `proceso.html` y pestaña *Commits* del repositorio.
+
+# Consideraciones de evaluación
+
+- Los commits del 24 de septiembre hacia atrás no cumplen con el formato requerido en la rúbrica por 
+  ser esta posterior a ellos. Los criterios de evaluación sobre dichos commits no se habían 
+  especificado, por lo que sería incorrecto considerarlos como erroneos. Se deben de tener 
+  en cuenta los commits que sí cumplen con los requisitos de dicha rúbrica. 
+- Los commits de entre el 24 y 29 de septiembre no tienen una auditoría correcta (el email es inventado)
+  ya que tampoco se especificó (ni siquiera en la rúbrica) que eso fuera requisito. Por desconocimineto 
+  y con intención de salvaguardar los datos de carácter personal, se emplearon emails y usuarios inventados 
+  sin tener conocimiento de la repercusión en la auditoría de esta decisión. 
+  Tampoco se puede evaluar erroneamente, ya que no ha sido especificado en ningún momento y, por ende, 
+  se han de tener en cuenta sólo los commits que cumplen correctamente.
+- En el apartado de información personal, no se incluye un video. En su lugar, hay una animación 3D de un 
+  globo terráqueo con las simulaciones de conexiones de datos a nivel global. 
+  Esto no está reflejado en la rúbrica, pero se considera válido ya que el profesor indicó verbalmente 
+  que una animación de estas características valía por el video. 
+  Adicionalmente, se incluye un video, con lo que se debe considerar trabajo extra para nota. 
+
