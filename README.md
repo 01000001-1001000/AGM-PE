@@ -75,7 +75,7 @@ todas las imágenes, estructura de encabezados coherente y animaciones que se de
 - Órdenes a la IA archivadas: [`docs/prompts-ia.md`](docs/prompts-ia.md)
 - Historial e iteraciones: página `proceso.html` y pestaña *Commits* del repositorio.
 
-# Consideraciones de evaluación
+## Consideraciones
 
 - Los commits del 24 de septiembre hacia atrás no cumplen con el formato requerido en la rúbrica por 
   ser esta posterior a ellos. Los criterios de evaluación sobre dichos commits no se habían 
