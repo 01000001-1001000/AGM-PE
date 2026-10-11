@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260" width="720" height="260" role="img" aria-labelledby="t d">
-  <title id="t">Flujo de ramas: feature, pull request y fusión en main</title>
-  <desc id="d">Diagrama animado: la rama main avanza con commits; de ella salen dos ramas de feature (feat/contacto y fix/fuentes) que vuelven a main mediante pull request.</desc>
+  <title id="t">Flujo de ramas: feature y fusión en main con merge commit</title>
+  <desc id="d">Diagrama animado: la rama main avanza con commits; de ella salen dos ramas de feature (feat/contacto y fix/fuentes) que vuelven a main mediante un merge commit.</desc>
   <style>
     .m{font:500 13px "IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;fill:#fff}
     .g{fill:#8a8a94}
@@ -33,7 +33,7 @@
   <text class="m" x="40" y="222">main</text>
   <text class="m" x="212" y="80" fill="#e10000" style="fill:#e10000">feat/contacto</text>
   <text class="m g" x="402" y="28">fix/fuentes</text>
-  <text class="m" x="372" y="215">PR + merge</text>
-  <text class="m g" x="545" y="215">PR + merge</text>
+  <text class="m" x="372" y="215">merge commit</text>
+  <text class="m g" x="545" y="215">merge commit</text>
   <text class="m g" x="40" y="246" style="font-size:12px">un commit = un cambio con su porqué</text>
 </svg>
