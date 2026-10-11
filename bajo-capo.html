@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bajo el capó — AH</title>
+  <meta property="og:title" content="Bajo el capó — AH">
+  <meta property="og:description" content="Un número visto desde el humano y desde la máquina: decimal, hex, binario, bytes. Y la ruta académica.">
+  <meta property="og:type" content="website">
   <meta name="description" content="Un número visto desde el humano y desde la máquina: decimal, hex, binario, bytes. Y la ruta académica.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
@@ -27,17 +38,38 @@
         <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
         <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
         <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
         <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
       </ul>
     </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
       <span></span><span></span>
     </button>
   </header>
 
-  <!--Globex-->
+
+
+  <main id="main" tabindex="-1">
+
+    <!-- ================= CABECERA DE PÁGINA ================= -->
+    <section class="page-hero">
+      <div class="page-hero-grid" aria-hidden="true"></div>
+      <div class="wrap">
+        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Bajo el capó</b></p>
+        <p class="eyebrow" data-scramble>SECCIÓN_04 / SISTEMA</p>
+        <h1 class="page-title" data-lines>Un número, cuatro formas de verlo.</h1>
+        <p class="page-intro">Me interesa dominar los detalles: el mismo dato visto desde el humano y desde la máquina. Prueba el conversor de abajo.</p>
+        <div class="page-cta">
+          <a class="btn btn--solid" href="contacto.html">Contactar</a>
+          <a class="btn btn--ghost" href="index.html">Volver al inicio</a>
+        </div>
+      </div>
+    </section>
+
   <!-- ================= SECCIÓN: RED GLOBAL (globo 3D) ================= -->
-<section class="section section--ink globe-section" id="red">
+    <!-- Globo 3D: se carga de forma perezosa desde js/main.js (import dinámico) -->
+    <section class="section section--ink globe-section" id="red">
   <div class="wrap">
     <header class="section-head">
       <p class="section-num">/ Red global</p>
@@ -63,25 +95,6 @@
   </div>
 </section>
 
-  <!--================-->
-
-  <main>
-
-    <!-- ================= CABECERA DE PÁGINA ================= -->
-    <section class="page-hero">
-      <div class="page-hero-grid" aria-hidden="true"></div>
-      <div class="wrap">
-        <p class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <b>Bajo el capó</b></p>
-        <p class="eyebrow" data-scramble>SECCIÓN_04 / SISTEMA</p>
-        <h1 class="page-title" data-lines>Un número, cuatro formas de verlo.</h1>
-        <p class="page-intro">Me interesa dominar los detalles: el mismo dato visto desde el humano y desde la máquina. Prueba el conversor de abajo.</p>
-        <div class="page-cta">
-          <a class="btn btn--solid" href="contacto.html">Contactar</a>
-          <a class="btn btn--ghost" href="index.html">Volver al inicio</a>
-        </div>
-      </div>
-    </section>
-
     <!-- ================= CONVERSOR ================= -->
     <section class="section section--ink deep" id="capo">
       <div class="wrap deep-grid">
@@ -90,6 +103,11 @@
           <p class="section-lead" data-reveal>
             Escribe un número o pulsa un valor rápido y observa cómo lo manipula la máquina internamente.
           </p>
+          <figure class="fig" data-reveal>
+            <img src="assets/img/consola-anim.svg" width="640" height="270" loading="lazy"
+                 alt="Consola de Python que convierte el número 2026 a hexadecimal (0x7ea), binario y a 4 bytes">
+            <figcaption>El mismo número, visto como lo ve Python: hex, binario y bytes.</figcaption>
+          </figure>
         </div>
 
         <!-- Panel de control -->
@@ -139,10 +157,8 @@
         <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
         <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
         <div class="mail-row">
-          <!--<a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>-->
-          <a href="./contacto.html">
-          <button class="btn btn--copy">Contacto</button>
-          </a>
+          <!--<a class="mail" id="mailLink" href="mailto:alhcasgar@alu.edu.gva.es">alhcasgar@alu.edu.gva.es</a>-->
+          <a class="btn btn--copy" href="contacto.html">Contacto</a>
         </div>
         <p class="copy-feedback" id="copyFeedback" role="status"></p>
       </div>
@@ -155,20 +171,17 @@
           <div><dt>Ubicación</dt><dd>España</dd></div>
         </dl>
         <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+        <p><a class="footer-link" href="proceso.html">Proceso</a><a class="footer-link" href="zona.html">Zona privada · demo</a></p>
       </aside>
     </div>
     <div class="wrap footer-bar">
-      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con IA.</p>
-      <p class="footer-tiny">Copiando plantillas. Copiando frameworks. Copiando todo.</p>
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
-<!--Globex-->
-  <script type="importmap">
-{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
-</script>
-<script type="module" src="globex.js"></script>
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 
 
 </body>

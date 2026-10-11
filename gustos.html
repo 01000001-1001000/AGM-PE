@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Me gusta — AH</title>
+  <meta property="og:title" content="Me gusta — AH">
+  <meta property="og:description" content="Qué me mueve: Python, cine, y la curiosidad por el bajo nivel.">
+  <meta property="og:type" content="website">
   <meta name="description" content="Qué me mueve: Python, cine, y la curiosidad por el bajo nivel.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
@@ -27,15 +38,17 @@
         <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
         <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
         <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
         <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
       </ul>
     </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
       <span></span><span></span>
     </button>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
 
     <!-- ================= CABECERA DE PÁGINA ================= -->
     <section class="page-hero">
@@ -73,24 +86,16 @@
           <article class="tile tile--film" data-reveal>
             <p class="tile-kicker">Fuera de la pantalla</p>
             <h3>Ver películas</h3>
-            <p>Cine como pasatiempo favorito y ejercicio de anáisis del relato: plano, ritmo, estructura.</p>
-            <div class="film-strip kb">
-              <img src="https://picsum.photos/seed/cinema-noir-frame-projector/600/420" alt="Fotograma de cine">
-              <img src="https://picsum.photos/seed/film-reel-dark-theatre/600/420" alt="Bobina de película">
-              <img src="https://picsum.photos/seed/movies-marquee-night-lights/600/420" alt="Rótulo de cine de noche">
-            </div>
+            <p>Cine como pasatiempo favorito y ejercicio de análisis del relato: plano, ritmo, estructura.</p>
+            <img class="tile-art" src="assets/img/cine.svg" width="600" height="260" loading="lazy" alt="Ilustración de una tira de película con tres fotogramas">
           </article>
 
           <!-- Bloque: MOTO -->
           <article class="tile tile--film" data-reveal>
             <p class="tile-kicker">En la carretera</p>
             <h3>Aficionado al motor</h3>
-            <p>Amante de sentir el coeficiente de fricción del asfalto con las ruedas y de oir el proceso de combustión en el motor.</p>
-            <div class="film-strip kb">
-              <img src="https://picsum.photos/seed/cinema-noir-frame-projector/600/420" alt="Fotograma de cine">
-              <img src="https://picsum.photos/seed/film-reel-dark-theatre/600/420" alt="Bobina de película">
-              <img src="https://picsum.photos/seed/movies-marquee-night-lights/600/420" alt="Rótulo de cine de noche">
-            </div>
+            <p>Amante de sentir el coeficiente de fricción del asfalto con las ruedas y de oír el proceso de combustión en el motor.</p>
+            <img class="tile-art" src="assets/img/motor.svg" width="600" height="260" loading="lazy" alt="Esquema de pistón, biela y cigüeñal de un motor">
           </article>
 
           <!-- Bloque: bajo nivel -->
@@ -129,10 +134,8 @@
         <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
         <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
         <div class="mail-row">
-          <!--<a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>-->
-          <a href="./contacto.html">
-          <button class="btn btn--copy">Contacto</button>
-          </a>
+          <!--<a class="mail" id="mailLink" href="mailto:alhcasgar@alu.edu.gva.es">alhcasgar@alu.edu.gva.es</a>-->
+          <a class="btn btn--copy" href="contacto.html">Contacto</a>
         </div>
         <p class="copy-feedback" id="copyFeedback" role="status"></p>
       </div>
@@ -145,14 +148,16 @@
           <div><dt>Ubicación</dt><dd>España</dd></div>
         </dl>
         <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+        <p><a class="footer-link" href="proceso.html">Proceso</a><a class="footer-link" href="zona.html">Zona privada · demo</a></p>
       </aside>
     </div>
     <div class="wrap footer-bar">
-      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con IA.</p>
-      <p class="footer-tiny">Copiando plantillas. Copiando frameworks. Copiando todo.</p>
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

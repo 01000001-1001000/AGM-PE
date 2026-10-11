@@ -8,17 +8,6 @@
   doc.classList.add('js');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ------------------------------------------------------------
-     CONFIGURACIÓN DEL FORMULARIO
-     Deja FORM_ENDPOINT vacío ("") para enviar por correo (abre el
-     cliente con el mensaje redactado). Para envío AJAX real, pega
-     la URL de Formspree / Web3Forms, p.ej.:
-       var FORM_ENDPOINT = "https://formspree.io/f/xxxxxxx";
-       var FORM_METHOD   = "POST";
-     ------------------------------------------------------------ */
-  var FORM_ENDPOINT = "";
-  var FORM_METHOD = "POST";
-
   // Aísla cada módulo: un fallo no tumba el resto.
   function safe(fn) { try { fn(); } catch (e) { console.error('[AH]', e); } }
 
@@ -291,150 +280,7 @@
     });
   }
 
-  /* ---------- 13. FORMULARIO de contacto (funcional) ---------- */
-  function initForm() {
-    var form = document.getElementById('contactForm');
-    if (!form) return;
-
-    var success = document.getElementById('formSuccess');
-    var successMsg = document.getElementById('successMsg');
-    var status = document.getElementById('formStatus');
-    var submitBtn = document.getElementById('submitBtn');
-    var msgField = document.getElementById('fMessage');
-    var charCount = document.getElementById('charCount');
-    var lastPayload = '';
-
-    // Contador en vivo del mensaje
-    if (msgField && charCount) {
-      var upd = function () { charCount.textContent = msgField.value.length; };
-      msgField.addEventListener('input', upd); upd();
-    }
-
-    // Reglas de validación por campo
-    var rules = {
-      fName:    { el: document.getElementById('fName'),    err: document.getElementById('errName'),    test: function (v) { return v.trim().length >= 2; }, msg: 'Escribe al menos 2 caracteres.' },
-      fEmail:   { el: document.getElementById('fEmail'),   err: document.getElementById('errEmail'),   test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }, msg: 'Introduce un correo válido.' },
-      fSubject: { el: document.getElementById('fSubject'), err: document.getElementById('errSubject'), test: function (v) { return v !== ''; }, msg: 'Elige un motivo.' },
-      fMessage: { el: msgField,                            err: document.getElementById('errMessage'), test: function (v) { return v.trim().length >= 15; }, msg: 'Cuéntame un poco más (mín. 15 caracteres).' },
-      fConsent: { el: document.getElementById('fConsent'), err: document.getElementById('errConsent'), test: function (v, f) { return f.checked; }, msg: 'Debes aceptar para continuar.' }
-    };
-
-    function show(field, ok, message) {
-      field.el.setAttribute('aria-invalid', ok ? 'false' : 'true');
-      field.err.textContent = ok ? '' : message;
-      field.err.classList.toggle('show', !ok);
-    }
-
-    function validateOne(name) {
-      var f = rules[name];
-      var val = f.el.type === 'checkbox' ? '' : f.el.value;
-      var ok = f.test(val, f.el);
-      show(f, ok, f.msg);
-      return ok;
-    }
-
-    // Validación al salir de cada campo (feedback inmediato)
-    Object.keys(rules).forEach(function (name) {
-      var ev = rules[name].el.type === 'checkbox' ? 'change' : 'blur';
-      rules[name].el.addEventListener(ev, function () { validateOne(name); });
-    });
-
-    function setStatus(text, kind) {
-      status.textContent = text || '';
-      status.className = 'form-status' + (kind ? ' ' + kind : '');
-    }
-
-    function buildMailto(mail, data) {
-      var subject = '[Web AH] ' + data.motivo + ' — ' + data.nombre;
-      var body = 'Nombre: ' + data.nombre +
-                 '\nCorreo: ' + data.email +
-                 '\nMotivo: ' + data.motivo +
-                 '\n\n--- Mensaje ---\n' + data.mensaje;
-      return 'mailto:' + mail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    }
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Trampa anti-spam: si el campo oculto tiene valor, es un bot.
-      var hp = document.getElementById('fSite');
-      if (hp && hp.value !== '') { setStatus('No se pudo enviar.', 'bad'); return; }
-
-      // Validar todo; enfocar el primer error.
-      var allOk = true, firstBad = null;
-      Object.keys(rules).forEach(function (name) {
-        var ok = validateOne(name);
-        if (!ok && !firstBad) firstBad = rules[name].el;
-        if (!ok) allOk = false;
-      });
-      if (!allOk) { setStatus('Revisa los campos marcados.', 'bad'); if (firstBad) firstBad.focus(); return; }
-
-      var data = {
-        nombre: document.getElementById('fName').value.trim(),
-        email: document.getElementById('fEmail').value.trim(),
-        motivo: document.getElementById('fSubject').value,
-        mensaje: msgField.value.trim()
-      };
-      lastPayload = 'Nombre: ' + data.nombre + '\nCorreo: ' + data.email + '\nMotivo: ' + data.motivo + '\n\n' + data.mensaje;
-
-      submitBtn.disabled = true;
-      setStatus('Enviando…', '');
-
-      // --- Envío AJAX real si hay endpoint configurado ---
-      if (FORM_ENDPOINT) {
-        fetch(FORM_ENDPOINT, {
-          method: FORM_METHOD,
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(data)
-        }).then(function (r) {
-          if (!r.ok) throw new Error('HTTP ' + r.status);
-          finish('Tu mensaje se ha enviado correctamente. Te responderé pronto.');
-        }).catch(function () {
-          submitBtn.disabled = false;
-          setStatus('No se pudo enviar. Inténtalo de nuevo o escribe a mano.', 'bad');
-        });
-        return;
-      }
-
-      // --- Envío por correo (sin backend): abre el cliente con el mensaje redactado ---
-      var mail = form.getAttribute('data-mail') || 'ah.correo@ejemplo.com';
-      try {
-        window.location.href = buildMailto(mail, data);
-        finish('Se ha abierto tu cliente de correo con el mensaje redactado. Si no se abrió, cópialo con el botón de abajo.');
-      } catch (err) {
-        finish('Prepara tu mensaje: usa “Copiar mensaje” y pégalo en un correo a ' + mail + '.');
-      }
-    });
-
-    function finish(text) {
-      submitBtn.disabled = false;
-      setStatus('', '');
-      form.hidden = true;
-      successMsg.textContent = text;
-      success.hidden = false;
-      success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-    }
-
-    // Copiar el mensaje redactado (respaldo)
-    var copyMsg = document.getElementById('copyMessage');
-    if (copyMsg) copyMsg.addEventListener('click', function () {
-      if (!navigator.clipboard) { copyMsg.textContent = 'Copia manual'; return; }
-      navigator.clipboard.writeText(lastPayload).then(function () {
-        copyMsg.textContent = 'Copiado';
-        setTimeout(function () { copyMsg.textContent = 'Copiar mensaje'; }, 2500);
-      });
-    });
-
-    // Reiniciar
-    var reset = document.getElementById('resetForm');
-    if (reset) reset.addEventListener('click', function () {
-      form.reset();
-      Object.keys(rules).forEach(function (n) { show(rules[n], true, ''); });
-      if (charCount) charCount.textContent = '0';
-      success.hidden = true; form.hidden = false;
-      document.getElementById('fName').focus();
-    });
-  }
+  /* ---------- 13. (El formulario de contacto ahora vive en js/contact.js) ---------- */
 
   /* ---------- 14. Año en el pie ---------- */
   function initYear() { var y = document.getElementById('year'); if (y) y.textContent = new Date().getFullYear(); }
@@ -452,6 +298,5 @@
   safe(initTicker);
   safe(initLab);
   safe(initCopy);
-  safe(initForm);
   safe(initYear);
 })();

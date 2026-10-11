@@ -4,13 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lo que he hecho — AH</title>
+  <meta property="og:title" content="Lo que he hecho — AH">
+  <meta property="og:description" content="Proyectos y prácticas de AH: web corporativa, aplicaciones CLI en Python, laboratorio de bajo nivel.">
+  <meta property="og:type" content="website">
   <meta name="description" content="Proyectos y prácticas de AH: web corporativa, aplicaciones CLI en Python, laboratorio de bajo nivel.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="extras.css">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta name="theme-color" content="#0b0b0d">
+  <meta name="color-scheme" content="dark light">
+  <!-- Aplica el tema guardado ANTES de pintar la página (evita el parpadeo oscuro→claro) -->
+  <script>(function(){try{var t=localStorage.getItem('ah-theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}})();</script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <div class="grain" aria-hidden="true"></div>
   <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
@@ -27,15 +38,17 @@
         <li><a href="trabajo.html" class="nav-link">Lo que he hecho</a></li>
         <li><a href="gustos.html" class="nav-link">Me gusta</a></li>
         <li><a href="bajo-capo.html" class="nav-link">Bajo el capó</a></li>
+        <li><a href="proceso.html" class="nav-link">Proceso</a></li>
         <li><a href="contacto.html" class="nav-link nav-link--cta">Contacto</a></li>
       </ul>
     </nav>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Cambiar a tema claro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 4a8 8 0 0 0 0 16z" fill="currentColor"/></svg></button>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menú">
       <span></span><span></span>
     </button>
   </header>
 
-  <main>
+  <main id="main" tabindex="-1">
 
     <!-- ================= CABECERA DE PÁGINA ================= -->
     <section class="page-hero">
@@ -52,73 +65,154 @@
       </div>
     </section>
 
-    <!-- ================= LO QUE HE HECHO (tarjetas apiladas) ================= -->
+    <!-- ================= LO QUE HE HECHO ================= -->
     <section class="section section--ink work" id="hecho">
       <div class="wrap">
 
-        <div class="stack">
+        <!-- Buscador + filtros (js/projects.js): recuerda tu última selección -->
+        <div class="toolbar" role="search">
+          <input type="search" id="projSearch" placeholder="Buscar proyecto o tecnología…" aria-label="Buscar proyectos">
+          <div class="fchips" role="group" aria-label="Filtrar por tecnología">
+            <button type="button" class="fchip" data-filter="todo" aria-pressed="true">Todo</button>
+            <button type="button" class="fchip" data-filter="web" aria-pressed="false">Web</button>
+            <button type="button" class="fchip" data-filter="python" aria-pressed="false">Python</button>
+            <button type="button" class="fchip" data-filter="sistemas" aria-pressed="false">Sistemas</button>
+            <button type="button" class="fchip" data-filter="n8n" aria-pressed="false">n8n</button>
+          </div>
+          <p class="pcount" id="projCount" role="status" aria-live="polite"></p>
+          <button type="button" class="fchip" id="projReset">Limpiar</button>
+        </div>
 
-          <!-- Proyecto 1 -->
-          <article class="stack-card" style="--i:0">
-            <div class="card-media kb"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrz1hcGYnE2k_QJSpVjSqBzSl6m5pDKvkM4dJPjciRQNMz5FwS9MkvCK0&s=10" alt="Maqueta de una web corporativa en pantalla."></div>
+        <div class="stack">
+          <!-- Proyecto 01: data-tags alimenta el filtro de js/projects.js -->
+          <article class="stack-card" style="--i:0" data-tags="web html css encargos">
+            <div class="card-media kb"><img src="assets/img/proj-web.svg" width="600" height="450" loading="lazy" alt="Maqueta esquemática de una web corporativa"></div>
             <div class="card-text">
               <span class="card-index">01</span>
               <h3>Web corporativa</h3>
-              <p class="card-role">Diseño y maquetación · HTML + CSS</p>
-              <p>Estructura semántica, navegación clara y una hoja de estilos mantenible. La primera vez que
-                 entendí que una web es un documento antes que un dibujo.</p>
-              <ul class="tags"><li>HTML5</li><li>CSS</li><li>Semántica</li><li>Responsive</li></ul>
+              <p class="card-role">Desarrollo · HTML + CSS</p>
+              <p>Diseño y desarrollo de la primera web corporativa para la empresa Pewenche y participación consultiva en el desarrollo de su segunda versión</p>
+              <ul class="tags"><li>HTML5</li><li>CSS</li></ul>
+              <!-- Caso de estudio: problema → solución → resultado → métricas -->
+              <details class="case">
+                <summary>Caso de estudio</summary>
+                <dl>
+                  <div><dt>Problema</dt><dd>Falta de presencia en la web.</dd></div>
+                  <div><dt>Solución</dt><dd>Ofrecer una página web que cumpla con las necesidades de la empresa y permita que los clientes en potencia la conozcan.</dd></div>
+                  <div><dt>Resultado</dt><dd>Una web con contenidos atractivos sobre los productos, servicios y optimizada para multiplataforma.</dd></div>
+                  <div><dt>Métricas</dt><dd>Horas empleadas: 160</dd></div>
+                </dl>
+              </details>
             </div>
           </article>
-
-          <!-- Proyecto 2 -->
-          <article class="stack-card" style="--i:1">
-            <div class="card-media kb"><img src="https://cyberhoot.com/wp-content/uploads/2022/03/windows-batch-files.jpg" alt="Nah."></div>
+          <!-- Proyecto 02: data-tags alimenta el filtro de js/projects.js -->
+          <article class="stack-card" style="--i:1" data-tags="python cli">
+            <div class="card-media kb"><img src="assets/img/proj-cli.svg" width="600" height="450" loading="lazy" alt="Terminal con un menú de aplicación de consola"></div>
             <div class="card-text">
               <span class="card-index">02</span>
               <h3>Aplicaciones de consola (CLI)</h3>
               <p class="card-role">Desarrollo · Python</p>
-              <p>Menús, validación de datos, ficheros y menú persistente. Sin interfaz gráfica donde esconderse:
-                 lógica pura y mensajes de error que el usuario entiende.</p>
+              <p>Programa en python para el matemático empedernido. No tiene límites, ya que incorpora un motor de integración modular de librerías. Con instalarlo e introducir un CD con los MODs que quieras incluir... el límite son tus necesidades.</p>
               <ul class="tags"><li>Python</li><li>Funciones</li><li>Ficheros</li><li>Excepciones</li></ul>
+              <!-- Caso de estudio: problema → solución → resultado → métricas -->
+              <details class="case">
+                <summary>Caso de estudio</summary>
+                <dl>
+                  <div><dt>Problema</dt><dd>Dificultad a la hora de realizar operaciones aritméticas repetitivas y falta de medios específicamente diseñados para desempeñar el problema preciso.</dd></div>
+                  <div><dt>Solución</dt><dd>Diseñar una calculadora programable en python.</dd></div>
+                  <div><dt>Resultado</dt><dd>Un programa de consola destinado a facilitar la realización de labores matemáticas repetitivas y con posibilidad de añadir complementos para usuarios no programadores desde su interfaz de CLI.</dd></div>
+                  <div><dt>Métricas</dt><dd>Líneas de código: 231</dd></div>
+                </dl>
+              </details>
             </div>
           </article>
-
-          <!-- Proyecto 3 -->
-          <article class="stack-card" style="--i:2">
-            <div class="card-media kb"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuDfxmc4_S1ELmLBPpPOjalYJ6EYXCcxnkwA-hkO0YcA&s=10" alt="Nop."></div>
+          <!-- Proyecto 03: data-tags alimenta el filtro de js/projects.js -->
+          <article class="stack-card" style="--i:2" data-tags="sistemas redes linux">
+            <div class="card-media kb"><img src="assets/img/proj-lab.svg" width="600" height="450" loading="lazy" alt="Mapa de memoria de un proceso con código, datos, montón y pila"></div>
             <div class="card-text">
               <span class="card-index">03</span>
-              <h3>Laboratorio de bajo nivel</h3>
-              <p class="card-role">Autoaprendizaje · Sistemas</p>
-              <p>Prácticas de memoria, procesos y redes: ver el mapa de un programa, abrir un binario, mirar
-                 cabeceras y medir lo que cuesta cada operación.</p>
+              <h3>Implementación de servicios en red</h3>
+              <p class="card-role">Linux · Sistemas</p>
+              <p>Configuración de servicios de red DHCP, DNS, FTP y enrutamiento.</p>
               <ul class="tags"><li>Sistemas</li><li>Redes</li><li>Linux</li><li>Depuración</li></ul>
+              <!-- Caso de estudio: problema → solución → resultado → métricas -->
+              <details class="case">
+                <summary>Caso de estudio</summary>
+                <dl>
+                  <div><dt>Problema</dt><dd>Necesidad de servicios de red personalizados según necesidades específicas con control sobre los hosts.</dd></div>
+                  <div><dt>Solución</dt><dd>Implementación de servidores de servicios con los parámetros de configuración y personalización de la red requeridos</dd></div>
+                  <div><dt>Resultado</dt><dd>Red LAN totalmente controlada y parametrizada según necesidad de proyectos.</dd></div>
+                  <div><dt>Métricas</dt><dd>Horas empleadas: 16</dd></div>
+                </dl>
+              </details>
             </div>
           </article>
-
-          <!-- Proyecto 4 -->
-          <article class="stack-card" style="--i:3">
-            <div class="card-media kb"><img src="https://picsum.photos/seed/code-notebook-study-library/1200/900" alt="Anda que..."></div>
+          <!-- Proyecto 04: data-tags alimenta el filtro de js/projects.js -->
+          <article class="stack-card" style="--i:3" data-tags="n8n automatizaciones encargos">
+            <div class="card-media kb"><img src="assets/img/proj-notes.svg" width="600" height="450" loading="lazy" alt="Apuntes en Markdown y grafo de ramas de Git"></div>
             <div class="card-text">
               <span class="card-index">04</span>
-              <h3>Clases, retos y apuntes abiertos</h3>
-              <p class="card-role">Continuo · Ciclo DAM</p>
-              <p>Todo lo que estudio lo resumo en ficheros propios. Si no lo sé explicar en una hoja,
-                 todavía no lo he entendido.</p>
-              <ul class="tags"><li>Markdown</li><li>Git</li><li>Estudio</li></ul>
+              <h3>Automatizaciones en n8n</h3>
+              <p class="card-role">Diseño · n8n</p>
+              <p>Desarrollo de un sistema automatizado con n8n para la empresa Leads Locales.</p>
+              <ul class="tags"><li>n8n</li><li>Automatizaciones</li></ul>
+              <!-- Caso de estudio: problema → solución → resultado → métricas -->
+              <details class="case">
+                <summary>Caso de estudio</summary>
+                <dl>
+                  <div><dt>Problema</dt><dd>Necesidad de automatización de ciertas labores en la empresa.</dd></div>
+                  <div><dt>Solución</dt><dd>Desarrollo de un proyecto de prueba con un flujo automatizado en n8n.</dd></div>
+                  <div><dt>Resultado</dt><dd>Una serie de flujos automatizados funcionales en base a los criterios iniciales</dd></div>
+                  <div><dt>Métricas</dt><dd>Latencia promedio de ejecución: 15s</dd></div>
+                </dl>
+              </details>
             </div>
           </article>
         </div>
+        <p class="empty" id="projEmpty" hidden>Ningún proyecto coincide con tu búsqueda. Prueba con «python» o «web».</p>
 
-        <!-- Lista compacta de otros trabajos -->
+        <!-- Demo: vídeo propio (pon tu grabación en media/) + SVG animado de respaldo -->
+        <div class="demo">
+          <figure>
+            <video controls preload="none" poster="assets/img/port.svg" width="600" height="450">
+              <source src="media/docu.webm" type="video/webm">
+              <source src="media/docu.mp4" type="video/mp4">
+              <p>Tu navegador no reproduce vídeo. Mira la animación de al lado.</p>
+            </video>
+            <figcaption>Docu</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 600 340" role="img" aria-labelledby="cliT cliD">
+              <title id="cliT">Animación de una sesión de consola</title>
+              <desc id="cliD">Se escribe el comando de la agenda, aparece el menú, se elige una opción inválida y el programa muestra un error controlado.</desc>
+              <rect width="600" height="340" fill="#08080a"/>
+              <g font-family="monospace" font-size="17">
+                <text class="cli-l" style="animation-delay:.3s" x="24" y="40" fill="#e10000">$ python agenda.py</text>
+                <text class="cli-l" style="animation-delay:1.2s" x="24" y="80" fill="#fff">=== AGENDA ===</text>
+                <text class="cli-l" style="animation-delay:1.8s" x="24" y="110" fill="#9a9aa4">1) Añadir  2) Buscar  0) Salir</text>
+                <text class="cli-l" style="animation-delay:2.8s" x="24" y="160" fill="#fff">Opción: 9</text>
+                <text class="cli-l" style="animation-delay:3.6s" x="24" y="192" fill="#ff6a6a">Error: elige una opción válida</text>
+                <text class="cli-l" style="animation-delay:4.6s" x="24" y="240" fill="#7ee0a4">Opción: <tspan class="cli-caret">▌</tspan></text>
+              </g></svg>
+            <figcaption>Animotion</figcaption>
+          </figure>
+        </div>
+
+        <!-- API real de GitHub: js/github.js -->
+        <div class="other-list">
+          <h3 class="list-title">Mi GitHub, en directo</h3>
+          <p class="section-lead" style="margin:0 0 8px">Estos repositorios se piden a la API de GitHub cada vez que abres la página.</p>
+          <div class="repos" id="repos" aria-live="polite" aria-busy="true"></div>
+        </div>
+
+        <!-- Lista compacta de otros trabajos (también filtrable) -->
         <div class="other-list">
           <h3 class="list-title">Otras cosas que he hecho</h3>
           <ul>
-            <li data-reveal><span class="ol-year">2024</span><span class="ol-name">Página de asignatura con maquetación en CSS Grid</span><span class="ol-tag">HTML/CSS</span></li>
-            <li data-reveal><span class="ol-year">2024</span><span class="ol-name">Utilidades de consola: agenda, control de stock y conversores</span><span class="ol-tag">Python</span></li>
-            <li data-reveal><span class="ol-year">2023</span><span class="ol-name">Prácticas de montaje y configuración de sistemas</span><span class="ol-tag">Sistemas</span></li>
-            <li data-reveal><span class="ol-year">2023</span><span class="ol-name">Primeros algoritmos y diagramas de flujo</span><span class="ol-tag">Lógica</span></li>
+            <li data-reveal data-tags="web"><span class="ol-year">2024</span><span class="ol-name">Página de asignatura con maquetación en CSS Grid</span><span class="ol-tag">HTML/CSS</span></li>
+            <li data-reveal data-tags="python"><span class="ol-year">2024</span><span class="ol-name">Utilidades de consola: agenda, control de stock y conversores</span><span class="ol-tag">Python</span></li>
+            <li data-reveal data-tags="sistemas"><span class="ol-year">2023</span><span class="ol-name">Prácticas de montaje y configuración de sistemas</span><span class="ol-tag">Sistemas</span></li>
+            <li data-reveal data-tags="logica"><span class="ol-year">2023</span><span class="ol-name">Primeros algoritmos y diagramas de flujo</span><span class="ol-tag">Lógica</span></li>
           </ul>
         </div>
       </div>
@@ -134,10 +228,8 @@
         <h2 class="footer-title" data-lines>A un clic de distancia de conversar...</h2>
         <p class="footer-lead">Disponible para prácticas de empresa, proyectos de ciclo y cualquier conversación técnica.</p>
         <div class="mail-row">
-          <!--<a class="mail" id="mailLink" href="mailto:ah.correo@ejemplo.com">ah.correo@ejemplo.com</a>-->
-          <a href="./contacto.html">
-          <button class="btn btn--copy">Contacto</button>
-          </a>
+          <!--<a class="mail" id="mailLink" href="mailto:alhcasgar@alu.edu.gva.es">alhcasgar@alu.edu.gva.es</a>-->
+          <a class="btn btn--copy" href="contacto.html">Contacto</a>
         </div>
         <p class="copy-feedback" id="copyFeedback" role="status"></p>
       </div>
@@ -150,14 +242,16 @@
           <div><dt>Ubicación</dt><dd>España</dd></div>
         </dl>
         <a class="btn btn--solid" href="index.html">Volver al inicio</a>
+        <p><a class="footer-link" href="proceso.html">Proceso</a><a class="footer-link" href="zona.html">Zona privada · demo</a></p>
       </aside>
     </div>
     <div class="wrap footer-bar">
-      <p>© <span id="year">2025</span> AH · Marca personal hecha sin manos con IA.</p>
-      <p class="footer-tiny">Copiando plantillas. Copiando frameworks. Copiando todo.</p>
+      <p>© <span id="year">2026</span> AH · Hecho a mano; la IA fue asistente (sus instrucciones están archivadas en el repositorio).</p>
+      <p class="footer-tiny">HTML · CSS · JavaScript sin frameworks.</p>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
